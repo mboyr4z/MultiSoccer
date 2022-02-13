@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Photon.Pun;
 
-public class TopController : MonoBehaviour,IPunObservable
+public class TopController : MonoBehaviour
 {
     private Vector2 topPos;
 
@@ -19,7 +19,7 @@ public class TopController : MonoBehaviour,IPunObservable
 
 
     // Ping problemi algoritması
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    /*public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
@@ -31,7 +31,7 @@ public class TopController : MonoBehaviour,IPunObservable
             transform.position = (Vector3)stream.ReceiveNext();// Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
             transform.rotation = (Quaternion)stream.ReceiveNext();
         }
-    }
+    }*/
 
     private void Start()
     {
@@ -106,8 +106,14 @@ public class TopController : MonoBehaviour,IPunObservable
             }
 
             ortayaGit();
-            PlayerController.instance.Gol(golYiyen);        // gol atıldığını playera haber et
-            
+            pv.RPC("GolOldu", RpcTarget.All, golYiyen);
         }
+    }
+
+    [PunRPC]
+    void GolOldu(int golYiyen)
+    {
+        TextManager.Instance.Ekle("GOOL " + golYiyen.ToString());
+        PlayerController.instance.Gol(golYiyen);
     }
 }

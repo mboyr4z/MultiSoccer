@@ -126,9 +126,10 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
 
     public void Gol(int golYiyen)
     {
+        TextManager.Instance.Ekle(" ortak Alan ");
         if (pv.IsMine)
         {
-            print("BAKEM KAC KEZ OLACAK");
+            TextManager.Instance.Ekle(" gol ");
             GolKontrolEt(golYiyen);
             EskiKonumunaDon(golYiyen);
         }
@@ -138,8 +139,6 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
     {
         if(golYiyen == PlayerPrefs.GetInt("oyuncuSirasi") && pv.IsMine )
         {
-            print(PlayerPrefs.GetInt("oyuncuSirasi"));
-            print("gol yiyen : " + golYiyen);
             PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);
             yenildimi();
         }
@@ -147,11 +146,12 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
     
     private void yenildimi()
     {
-        print("yenilme kontrol");
+
         if(PlayerPrefs.GetInt("gol") == 3)
         {
             PhotonNetwork.LeaveRoom();
         }
+        
     }
 
     void sutCek()
