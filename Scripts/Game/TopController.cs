@@ -113,7 +113,6 @@ public class TopController : MonoBehaviour
     [PunRPC]
     void GolOldu(int golYiyen)
     {
-        TextManager.Instance.Ekle("GOOL " + golYiyen.ToString());
         PlayerController.instance.Gol(golYiyen);
     }
 }

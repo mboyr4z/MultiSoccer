@@ -89,7 +89,7 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
         sut = GameObject.Find("Sut").GetComponent<Button>();
         rb = GetComponent<Rigidbody2D>();
         durum = GameObject.Find("Durum").GetComponent<TextMeshProUGUI>();
-        sut.onClick.AddListener(sutCek);
+       // sut.onClick.AddListener(sutCek);
 
 
         if (pv.IsMine)
@@ -126,14 +126,20 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
 
     public void Gol(int golYiyen)
     {
-        TextManager.Instance.Ekle(" ortak Alan ");
-        if (pv.IsMine)
-        {
-            TextManager.Instance.Ekle(" gol ");
-            GolKontrolEt(golYiyen);
-            EskiKonumunaDon(golYiyen);
-        }
+        TextManager.Instance.Ekle(" gol ");
+        GolKontrolEt(golYiyen);
+        EskiKonumunaDon(golYiyen);
+        
     }
+
+    public void EskiKonumunaDon(int golYiyen)
+    {
+            TextManager.Instance.Ekle("" + ilkKonum.ToString() + " konumuna gidiyom ");
+            transform.DOLocalMove(ilkKonum, 1).SetEase(Ease.Flash);
+            Invoke("hizSifirla", 1f);
+       
+    }
+
 
     public void GolKontrolEt(int golYiyen)
     {
@@ -154,7 +160,7 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
         
     }
 
-    void sutCek()
+   /* void sutCek()
     {
         if (pv.IsMine)
         {
@@ -166,7 +172,7 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
             }
             cerceve.DOColor(new Color(0, 255, 255, 255), 0.01f).OnComplete( () => rengiEskiHalineGetir());
         }      
-    }
+    }*/
 
     void rengiEskiHalineGetir()
     {
@@ -176,27 +182,10 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
         }
     }
 
-    public void EskiKonumunaDon(int golYiyen)
-    {
-        if (pv.IsMine)
-        {
-            if(golYiyen == PlayerPrefs.GetInt("oyuncuSirasi"))
-            {
-                print("GOL OLDU VE GOLU YİYEN BENİM");
-
-            }
-            else
-            {
-                print("GOL YİYEN BEN DEGİLİM");
-            }
-            transform.DOLocalMove(ilkKonum, 1).SetEase(Ease.Flash);
-            //durum.text = "Gol Oldu KONUM : " + ilkKonum.ToString();
-            Invoke("hizSifirla", 1f);
-        }
-    }
 
     void hizSifirla()
     {
+        if(pv.IsMine)
         rb.velocity = new Vector2(0, 0);
     }
 
