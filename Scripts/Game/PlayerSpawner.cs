@@ -15,36 +15,52 @@ public class PlayerSpawner : MonoBehaviour
 
     public static Vector3 spawnPoint;
 
-    int oyuncuSirasi;
+    private int playerOrder;
 
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
     }
 
-
-    void createController()
+    public void SpawnPlayer()
     {
-        oyuncuSirasi = PlayerPrefs.GetInt("oyuncuSirasi");
-        if (oyuncuSirasi == 1)
+        Invoke("Spawn", 0.3f);
+    }
+
+    private void Spawn()
+    {
+        playerOrder = PlayerPrefs.GetInt("playerOrder");
+
+        if (playerOrder == 1)
         {
-            spawnPoint = new Vector3(-8f,0f,0f);
+            spawnPoint = new Vector3(-8f, 0f, 0f);
         }
 
-        if (oyuncuSirasi == 2)
+        if (playerOrder == 2)
         {
             spawnPoint = new Vector3(8f, 0f, 0f);
         }
 
-        if (oyuncuSirasi == 3 )
+        if (playerOrder == 3)
         {
             spawnPoint = new Vector3(0f, 4f, 0f);
         }
 
-        if (oyuncuSirasi == 4)
+        if (playerOrder == 4)
         {
             spawnPoint = new Vector3(0f, -4f, 0f);
         }
-        PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity, 0);
+
+        GameObject _localPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity);
+        _localPlayer.GetComponent<PlayerSetup>().IsLocalPlayer();
+        _localPlayer.GetComponent<Movement>().enabled = true;
+
+        //_localPlayer.GetComponent<Shot>().enabled = true;
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(top.name, new Vector3(0, 0, 0), Quaternion.identity);
+        }
     }
+
 }

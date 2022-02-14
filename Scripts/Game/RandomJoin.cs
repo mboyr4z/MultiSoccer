@@ -41,21 +41,8 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
         PlayerPrefs.SetInt("gol", 0);
         PlayerPrefs.SetInt("oyuncuSirasi", PhotonNetwork.CurrentRoom.PlayerCount);
+
+        GetComponent<PlayerSpawner>().SpawnPlayer();
         
     }
-
-    /*public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        print("adam girdi");
-        print("su anki " + PhotonNetwork.CurrentRoom.PlayerCount);
-
-        if(PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers  )
-        {
-            PhotonNetwork.LoadLevel(1);
-        }
-    }*/
-
-   
-
-
 }
