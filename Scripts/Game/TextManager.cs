@@ -9,6 +9,7 @@ public class TextManager : Singleton<TextManager>
     private void Start()
     {
         alan = GetComponent<Text>();
+        print("alan var " + alan.ToString());
     }
     public void Ekle(string yazi)
     {
