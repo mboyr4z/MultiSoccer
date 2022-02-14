@@ -37,7 +37,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     {
         PlayerPrefs.SetInt("gol", 0);
         PlayerPrefs.SetInt("oyuncuSirasi", PhotonNetwork.CurrentRoom.PlayerCount);
-        PhotonNetwork.LoadLevel(1);
+        
     }
 
     /*public override void OnPlayerEnteredRoom(Player newPlayer)
