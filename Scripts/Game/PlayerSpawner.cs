@@ -5,7 +5,7 @@ using Photon.Realtime;
 using Photon.Pun;
 using System.IO;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerSpawner : MonoBehaviour
 {
     PhotonView PV;
     Vector3 playerPos;
