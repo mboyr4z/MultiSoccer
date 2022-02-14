@@ -12,8 +12,11 @@ public class TextManager : Singleton<TextManager>
     }
     public void Ekle(string yazi)
     {
-
-        
         alan.text = alan.text +" " +  yazi + " ";
+    }
+
+    public void UzerineYaz(string yazi)
+    {
+        alan.text = " " + yazi;
     }
 }

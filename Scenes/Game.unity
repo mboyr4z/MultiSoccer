@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -743,18 +743,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 300
+    m_FontSize: 200
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'D : '
+  m_Text: 
 --- !u!114 &636357491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,12 +2038,12 @@ PrefabInstance:
     - target: {fileID: 4559058537575463267, guid: d50de03f9cea0c34a8e26cac67ca749e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 4052.0837
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 4559058537575463267, guid: d50de03f9cea0c34a8e26cac67ca749e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1415.476
+      value: 1297.7794
       objectReference: {fileID: 0}
     - target: {fileID: 4559058537575463267, guid: d50de03f9cea0c34a8e26cac67ca749e,
         type: 3}
@@ -2063,12 +2063,12 @@ PrefabInstance:
     - target: {fileID: 4559058537575463267, guid: d50de03f9cea0c34a8e26cac67ca749e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 308.46
+      value: -0.0000207
       objectReference: {fileID: 0}
     - target: {fileID: 4559058537575463267, guid: d50de03f9cea0c34a8e26cac67ca749e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 310.35
+      value: 217.72
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4559058537575463266, guid: d50de03f9cea0c34a8e26cac67ca749e, type: 3}
