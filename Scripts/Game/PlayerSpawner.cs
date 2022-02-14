@@ -7,46 +7,44 @@ using System.IO;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    PhotonView PV;
-    Vector3 playerPos;
+    PhotonView pv;
+
+    public GameObject player;
+
+    public GameObject top;
+
+    public static Vector3 spawnPoint;
+
     int oyuncuSirasi;
 
     private void Awake()
     {
-        PV = GetComponent<PhotonView>();
+        pv = GetComponent<PhotonView>();
     }
 
-    private void OnEnable()
-    {
-       // if (PV.IsMine)
-        //{
-            createController();
-        //}
-    }
 
     void createController()
     {
-        print("Oyuncu Uretiliyor");
         oyuncuSirasi = PlayerPrefs.GetInt("oyuncuSirasi");
         if (oyuncuSirasi == 1)
         {
-            playerPos = new Vector2(-8f,0f);
+            spawnPoint = new Vector3(-8f,0f,0f);
         }
 
         if (oyuncuSirasi == 2)
         {
-            playerPos = new Vector2(8f, 0f);
+            spawnPoint = new Vector3(8f, 0f, 0f);
         }
 
         if (oyuncuSirasi == 3 )
         {
-            playerPos = new Vector2(0f, 4f);
+            spawnPoint = new Vector3(0f, 4f, 0f);
         }
 
         if (oyuncuSirasi == 4)
         {
-            playerPos = new Vector2(0f, -4f);
+            spawnPoint = new Vector3(0f, -4f, 0f);
         }
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs","PlayerController"), playerPos, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity, 0);
     }
 }
