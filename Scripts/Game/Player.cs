@@ -8,14 +8,10 @@ using Photon.Pun;
 
 
 
-public class PlayerController : Singleton<PlayerController>,IPunObservable
+public class Player : Singleton<Player>,IPunObservable
 {
 
-    public static PlayerController instance;
-
-    
-
-    [SerializeField] private float hiz;
+    public static Player instance;
 
     [SerializeField] SpriteRenderer cerceve;
 
@@ -27,11 +23,7 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
 
     private PhotonView pv;
 
-
-
     Rigidbody2D rb;
-
-    private Button sut;
 
     
 
@@ -62,15 +54,9 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
 
     private void Start()
     {
-
-
-
         
         pv = GetComponent<PhotonView>();        
         
-        
-
-        sut = GameObject.Find("Sut").GetComponent<Button>();
         rb = GetComponent<Rigidbody2D>();
         durum = GameObject.Find("Durum").GetComponent<TextMeshProUGUI>();
        // sut.onClick.AddListener(sutCek);

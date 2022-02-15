@@ -357,6 +357,8 @@ GameObject:
   - component: {fileID: 6020847669995605633}
   - component: {fileID: 2905451693459525305}
   - component: {fileID: 3575681923921953084}
+  - component: {fileID: -609429124038008238}
+  - component: {fileID: 6988629018340844203}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -415,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd181a37234bb94d89a110b727bc887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiz: 25
   cerceve: {fileID: 8834578923795622967}
   nickName: {fileID: 8834578924728768573}
   arkaPlan: {fileID: 4523979399072964038}
@@ -509,6 +510,31 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &-609429124038008238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834578924717594957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65386322b063d4c49b11b4718af67cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiz: 3
+--- !u!114 &6988629018340844203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834578924717594957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d21b1c0d4a0d1498f7858a72d3dbcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8834578924728768575
 GameObject:
   m_ObjectHideFlags: 0

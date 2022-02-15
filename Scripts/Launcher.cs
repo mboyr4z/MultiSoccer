@@ -8,7 +8,7 @@ using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-    public static Launcher Instance;
+   /* public static Launcher Instance;
 
     private void Awake()
     {
@@ -170,5 +170,5 @@ public class Launcher : MonoBehaviourPunCallbacks
             startGameButton.GetComponent<Button>().enabled = false;
             startGameButton.GetComponent<Button>().transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Waiting Player";
         }
-    }
+    }*/
 }

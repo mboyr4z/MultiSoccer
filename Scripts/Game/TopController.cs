@@ -113,6 +113,6 @@ public class TopController : MonoBehaviour
     [PunRPC]
     void GolOldu(int golYiyen)
     {
-        PlayerController.instance.Gol(golYiyen);
+        Player.instance.Gol(golYiyen);
     }
 }

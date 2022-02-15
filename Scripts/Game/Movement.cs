@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    [SerializeField] private float hiz;
+
     private FixedJoystick joystick;
 
     private Cihaz cihaz;
 
     private float yatay, dikey;
+
+    private Rigidbody2D rb;
 
     private void Start()
     {
