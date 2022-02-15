@@ -13,7 +13,7 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
 
     public static PlayerController instance;
 
-    private Cihaz cihaz;
+    
 
     [SerializeField] private float hiz;
 
@@ -27,13 +27,13 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
 
     private PhotonView pv;
 
-    private FixedJoystick joystick;
+
 
     Rigidbody2D rb;
 
     private Button sut;
 
-    private float yatay, dikey;
+    
 
     private Vector3 ilkKonum;
 
@@ -63,27 +63,11 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
     private void Start()
     {
 
-#if UNITY_STANDALONE_WIN
 
-        cihaz = Cihaz.windows;
-
-#endif
-
-#if UNITY_ANDROID
-
-        cihaz = Cihaz.android;
-
-#endif
-
-#if UNITY_EDITOR
-
-        cihaz = Cihaz.unity;
-
-#endif
 
         
         pv = GetComponent<PhotonView>();        
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
+        
         
 
         sut = GameObject.Find("Sut").GetComponent<Button>();
@@ -189,37 +173,6 @@ public class PlayerController : Singleton<PlayerController>,IPunObservable
         rb.velocity = new Vector2(0, 0);
     }
 
-    private void FixedUpdate()
-    {
-
-        
-
-        if (pv.IsMine)
-        {
-            if(cihaz == Cihaz.android)
-            {
-                yatay = joystick.Horizontal;
-
-                dikey = joystick.Vertical;
-
-                
-
-                //rb.AddForce(new Vector3(yatay * Time.deltaTime * hiz, dikey * Time.deltaTime * hiz, 0));
-            }else
-            {
-                yatay = Input.GetAxis("Horizontal");
-                dikey = Input.GetAxis("Vertical");
-
-                
-            }
-            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(rb.velocity.x + yatay * Time.deltaTime * hiz, rb.velocity.y + dikey * Time.deltaTime * hiz), .3f);
-        }
-    }
 }
 
-public enum Cihaz
-{
-    unity,
-    windows,
-    android
-}
+
