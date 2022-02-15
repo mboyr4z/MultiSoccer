@@ -40,7 +40,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     {
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
         PlayerPrefs.SetInt("gol", 0);
-        PlayerPrefs.SetInt("oyuncuSirasi", PhotonNetwork.CurrentRoom.PlayerCount);
+        PlayerPrefs.SetInt("playerOrder", PhotonNetwork.CurrentRoom.PlayerCount);
 
         GetComponent<PlayerSpawner>().SpawnPlayer();
         

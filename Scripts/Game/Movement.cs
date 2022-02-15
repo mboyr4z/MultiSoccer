@@ -38,26 +38,21 @@ public class Movement : MonoBehaviour
 #endif
 
         joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
+        rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
             if (cihaz == Cihaz.android)
             {
                 yatay = joystick.Horizontal;
-
                 dikey = joystick.Vertical;
-
-
-
-                //rb.AddForce(new Vector3(yatay * Time.deltaTime * hiz, dikey * Time.deltaTime * hiz, 0));
             }
             else
             {
                 yatay = Input.GetAxis("Horizontal");
                 dikey = Input.GetAxis("Vertical");
-
-
             }
+
             rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(rb.velocity.x + yatay * Time.deltaTime * hiz, rb.velocity.y + dikey * Time.deltaTime * hiz), .3f);
         
     }
