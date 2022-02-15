@@ -46,9 +46,9 @@ public class Shot : MonoBehaviour
     {
         if(Time.time > nextFire && pv.IsMine)   // after 0.5f and isMine 
         {       
-            if (Vector3.Distance(transform.position, Ball.Instance.transform.position ) < 1.1f){ // player and ball distance smaller than 1.1f
+            if (Vector3.Distance(transform.position, Ball.Instance.transform.position ) < 1.4f){ // player and ball distance smaller than 1.1f
                 nextFire = Time.time + fireRate;
-                Ball.Instance.Move(transform.position, vurusGucu);   // move functions is run
+                Ball.Instance.MoveLocal(transform.position, vurusGucu);   // move functions is run
             }
         }
            // cerceve.DOColor(new Color(0, 255, 255, 255), 0.01f).OnComplete(() => rengiEskiHalineGetir());
