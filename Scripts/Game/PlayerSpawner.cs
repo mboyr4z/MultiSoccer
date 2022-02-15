@@ -51,7 +51,7 @@ public class PlayerSpawner : MonoBehaviour
             spawnPoint = new Vector3(0f, -4f, 0f);
         }
 
-        print(spawnPoint);
+        
         GameObject _localPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity);
         _localPlayer.GetComponent<PlayerSetup>().IsLocalPlayer();
         _localPlayer.GetComponent<Movement>().enabled = true;

@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 709457556}
   - component: {fileID: 709457555}
   m_Layer: 0
-  m_Name: OdayaGirmeAni
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

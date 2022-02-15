@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class OdayaGirmeAni : MonoBehaviourPunCallbacks
+public class Room : MonoBehaviourPunCallbacks
 {
-    public static OdayaGirmeAni Instance;
+    public static Room Instance;
 
     private void Awake()
     {
@@ -17,6 +18,11 @@ public class OdayaGirmeAni : MonoBehaviourPunCallbacks
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        print("çalışıyor");
     }
 
 
@@ -30,5 +36,11 @@ public class OdayaGirmeAni : MonoBehaviourPunCallbacks
                 manager.gameObject.SetActive(true);
             }
         }
+    }
+
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        print("girdim nea");
+        TextManager.Instance.UzerineYaz("id : " + newPlayer.UserId+ " geldi.  ");
     }
 }

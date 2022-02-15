@@ -113,6 +113,6 @@ public class TopController : MonoBehaviour
     [PunRPC]
     void GolOldu(int golYiyen)
     {
-        Player.instance.Gol(golYiyen);
+        Oyuncu.instance.Gol(golYiyen);
     }
 }

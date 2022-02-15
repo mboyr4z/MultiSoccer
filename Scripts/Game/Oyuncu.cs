@@ -8,10 +8,10 @@ using Photon.Pun;
 
 
 
-public class Player : Singleton<Player>,IPunObservable
+public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 {
 
-    public static Player instance;
+    public static Oyuncu instance;
 
     [SerializeField] SpriteRenderer cerceve;
 
@@ -73,22 +73,22 @@ public class Player : Singleton<Player>,IPunObservable
 
     private void renkAyarla()
     {
-        if (PlayerPrefs.GetInt("oyuncuSirasi") == 1)
+        if (PlayerPrefs.GetInt("playerOrder") == 1)
         {
             arkaPlan.color = new Color(255, 0, 0, 255);
         }
 
-        if (PlayerPrefs.GetInt("oyuncuSirasi") == 2)
+        if (PlayerPrefs.GetInt("playerOrder") == 2)
         {
             arkaPlan.color = new Color(0, 255, 0, 255);
         }
 
-        if (PlayerPrefs.GetInt("oyuncuSirasi") == 3)
+        if (PlayerPrefs.GetInt("playerOrder") == 3)
         {
             arkaPlan.color = new Color(0, 0, 255, 255);
         }
 
-        if (PlayerPrefs.GetInt("oyuncuSirasi") == 4)
+        if (PlayerPrefs.GetInt("playerOrder") == 4)
         {
             arkaPlan.color = new Color(255, 255, 0, 255);
         }
@@ -113,7 +113,7 @@ public class Player : Singleton<Player>,IPunObservable
 
     public void GolKontrolEt(int golYiyen)
     {
-        if(golYiyen == PlayerPrefs.GetInt("oyuncuSirasi") && pv.IsMine )
+        if(golYiyen == PlayerPrefs.GetInt("playerOrder") && pv.IsMine )
         {
             PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);
             yenildimi();
@@ -130,19 +130,7 @@ public class Player : Singleton<Player>,IPunObservable
         
     }
 
-   /* void sutCek()
-    {
-        if (pv.IsMine)
-        {
-            print("sut cekiliyor");
-            print("fark bu " + Vector3.Distance(transform.position, GameObject.Find("TopController(Clone)").transform.position).ToString());
-            if (Vector3.Distance(transform.position, GameObject.Find("TopController(Clone)").transform.position) < 1.5f) 
-            {
-                GameObject.Find("TopController(Clone)").GetComponent<TopController>().hareketEt(transform.position, 20);
-            }
-            cerceve.DOColor(new Color(0, 255, 255, 255), 0.01f).OnComplete( () => rengiEskiHalineGetir());
-        }      
-    }*/
+
 
     void rengiEskiHalineGetir()
     {

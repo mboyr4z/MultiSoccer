@@ -9,15 +9,11 @@ using DG.Tweening;
 
 public class RandomJoin : MonoBehaviourPunCallbacks
 {
-   
-
     void Start()
     {
         TextManager.Instance.UzerineYaz("OFFLINE");
         PhotonNetwork.ConnectUsingSettings();
         TextManager.Instance.UzerineYaz("CONNECTING SERVER...");
-        PhotonNetwork.SendRate = 200;
-        PhotonNetwork.SerializationRate = 200;
     }
 
     public override void OnConnectedToMaster()
@@ -45,4 +41,6 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         GetComponent<PlayerSpawner>().SpawnPlayer();
         
     }
+
+    
 }
