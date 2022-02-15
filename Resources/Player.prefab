@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d21b1c0d4a0d1498f7858a72d3dbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vurusGucu: 30
 --- !u!114 &5854646498256824340
 MonoBehaviour:
   m_ObjectHideFlags: 0

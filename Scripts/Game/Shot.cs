@@ -6,27 +6,51 @@ using Photon.Pun;
 
 public class Shot : MonoBehaviour
 {
-    private Button sut;
+
+    [SerializeField] private float vurusGucu;
+
+    private Button shotButton;
 
     private PhotonView pv;
 
+    private float fireRate = 0.5f;
+
+    private float nextFire = 0.0f;
+
+    
+
+
     void Start()
     {
-        sut = GameObject.Find("Sut").GetComponent<Button>();
+        shotButton = GameObject.Find("ShotButton").GetComponent<Button>();
+
+        if(Oyuncu.cihaz == Cihaz.android)
+        {
+            shotButton.onClick.AddListener(Shoot);
+        }
+        
+        
         pv = GetComponent<PhotonView>();
     }
 
-    void sutCek()
+    private void Update()
     {
-        if (pv.IsMine)
+        if (Oyuncu.cihaz != Cihaz.android && Input.GetKey(KeyCode.Space))
         {
-            print("sut cekiliyor");
-            print("fark bu " + Vector3.Distance(transform.position, GameObject.Find("TopController(Clone)").transform.position).ToString());
-            if (Vector3.Distance(transform.position, GameObject.Find("TopController(Clone)").transform.position) < 1.5f)
-            {
-                GameObject.Find("TopController(Clone)").GetComponent<TopController>().hareketEt(transform.position, 20);
-            }
-           // cerceve.DOColor(new Color(0, 255, 255, 255), 0.01f).OnComplete(() => rengiEskiHalineGetir());
+            //print("Distance : " + Vector3.Distance(transform.position, Ball.Instance.transform.position).ToString());
+            Shoot();
         }
+    }
+
+    void Shoot()
+    {
+        if(Time.time > nextFire && pv.IsMine)   // after 0.5f and isMine 
+        {       
+            if (Vector3.Distance(transform.position, Ball.Instance.transform.position ) < 1.1f){ // player and ball distance smaller than 1.1f
+                nextFire = Time.time + fireRate;
+                Ball.Instance.Move(transform.position, vurusGucu);   // move functions is run
+            }
+        }
+           // cerceve.DOColor(new Color(0, 255, 255, 255), 0.01f).OnComplete(() => rengiEskiHalineGetir());
     }
 }

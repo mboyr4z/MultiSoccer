@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Photon.Pun;
 
-public class TopController : MonoBehaviour
+public class Ball : Singleton<Ball>
 {
     private Vector2 topPos;
 
@@ -38,11 +38,10 @@ public class TopController : MonoBehaviour
         pv = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<CircleCollider2D>();
-        PhotonNetwork.SendRate = 200;
     }
 
-    public void hareketEt(Vector2 vuranPos, float guc)
-    {        
+    public void Move(Vector2 vuranPos, float guc)
+    {
         topPos = transform.position;
         yon = topPos - vuranPos;
         rb.velocity = yon * guc;
@@ -113,6 +112,6 @@ public class TopController : MonoBehaviour
     [PunRPC]
     void GolOldu(int golYiyen)
     {
-        Oyuncu.instance.Gol(golYiyen);
+        Oyuncu.Instance.Gol(golYiyen);
     }
 }

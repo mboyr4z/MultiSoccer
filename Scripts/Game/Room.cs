@@ -20,12 +20,6 @@ public class Room : MonoBehaviourPunCallbacks
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
-    {
-        print("çalışıyor");
-    }
-
-
     // sahne yüklendiğinde, managerlar aktif olur ve her oyuncunun controllerları açılır
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -38,9 +32,8 @@ public class Room : MonoBehaviourPunCallbacks
         }
     }
 
-    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        print("girdim nea");
-        TextManager.Instance.UzerineYaz("id : " + newPlayer.UserId+ " geldi.  ");
+        TextManager.Instance.UzerineYaz(" id : " + newPlayer.UserId);
     }
 }

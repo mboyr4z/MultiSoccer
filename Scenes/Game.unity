@@ -2087,6 +2087,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 217.72
       objectReference: {fileID: 0}
+    - target: {fileID: 5924266550707362247, guid: d50de03f9cea0c34a8e26cac67ca749e,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotButton
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4559058537575463266, guid: d50de03f9cea0c34a8e26cac67ca749e, type: 3}
     - {fileID: 4559058537046253641, guid: d50de03f9cea0c34a8e26cac67ca749e, type: 3}

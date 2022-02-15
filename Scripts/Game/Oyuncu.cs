@@ -10,8 +10,7 @@ using Photon.Pun;
 
 public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 {
-
-    public static Oyuncu instance;
+    public static Cihaz cihaz;
 
     [SerializeField] SpriteRenderer cerceve;
 
@@ -23,9 +22,7 @@ public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 
     private PhotonView pv;
 
-    Rigidbody2D rb;
-
-    
+    private Rigidbody2D rb;
 
     private Vector3 ilkKonum;
 
@@ -49,12 +46,30 @@ public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 
     private void Awake()
     {
-        instance = this;
+#if UNITY_STANDALONE_WIN
+
+        cihaz = Cihaz.windows;
+
+#endif
+
+#if UNITY_ANDROID
+
+        cihaz = Cihaz.android;
+
+#endif
+
+#if UNITY_EDITOR
+
+        cihaz = Cihaz.unity;
+
+#endif
     }
 
     private void Start()
     {
-        
+
+
+
         pv = GetComponent<PhotonView>();        
         
         rb = GetComponent<Rigidbody2D>();
@@ -150,3 +165,10 @@ public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 }
 
 
+
+public enum Cihaz
+{
+    unity,
+    windows,
+    android
+}
