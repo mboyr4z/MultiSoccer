@@ -8,7 +8,7 @@ using Photon.Pun;
 
 
 
-public class Oyuncu : Singleton<Oyuncu>,IPunObservable
+public class Oyuncu : Singleton<Oyuncu>
 {
     public static Cihaz cihaz;
 
@@ -29,7 +29,7 @@ public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 
 
     // Ping problemi algoritması
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    /*public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
@@ -41,7 +41,7 @@ public class Oyuncu : Singleton<Oyuncu>,IPunObservable
             transform.position = Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
             transform.rotation = (Quaternion)stream.ReceiveNext();
         } 
-    }
+    }*/
 
 
     private void Awake()

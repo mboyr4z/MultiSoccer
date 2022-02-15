@@ -32,8 +32,5 @@ public class Room : MonoBehaviourPunCallbacks
         }
     }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        TextManager.Instance.UzerineYaz(" id : " + newPlayer.UserId);
-    }
+    
 }
