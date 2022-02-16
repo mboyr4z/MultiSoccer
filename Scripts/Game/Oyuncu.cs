@@ -8,13 +8,13 @@ using Photon.Pun;
 
 
 
-public class Oyuncu : Singleton<Oyuncu>
+public class Oyuncu : Singleton<Oyuncu>,IPunObservable
 {
     public static Cihaz cihaz;
 
     [SerializeField] SpriteRenderer cerceve;
 
-    [SerializeField] private Text nickName;
+    public Text nickName;
 
     [SerializeField] private SpriteRenderer arkaPlan;
 
@@ -29,9 +29,9 @@ public class Oyuncu : Singleton<Oyuncu>
 
 
     // Ping problemi algoritması
-    /*public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
+        /*if (stream.IsWriting)
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
@@ -41,7 +41,8 @@ public class Oyuncu : Singleton<Oyuncu>
             transform.position = Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
             transform.rotation = (Quaternion)stream.ReceiveNext();
         } 
-    }*/
+        */
+    }
 
 
     private void Awake()
@@ -80,7 +81,6 @@ public class Oyuncu : Singleton<Oyuncu>
         if (pv.IsMine)
         {
             renkAyarla();
-            nickName.text = PhotonNetwork.NickName;
             ilkKonum = transform.position;
         }
     }

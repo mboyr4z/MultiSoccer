@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerSetup : MonoBehaviour
 {
     public void IsLocalPlayer()
     {
         TextManager.Instance.Ekle("Geldim");
+        Room.Instance.SetPlayersNameLocal();        // biri odaya girdiğinde tüm oyuncuların adları düzenlensin
+
     }
 }

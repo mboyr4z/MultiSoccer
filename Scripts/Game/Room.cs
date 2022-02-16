@@ -32,5 +32,23 @@ public class Room : MonoBehaviourPunCallbacks
         }
     }
 
-    
+    public void SetPlayersNameLocal()      //  her oyuncu localinde isimleri düzenlesin
+    {
+        photonView.RPC("SetPlayersNameGlobal",RpcTarget.All,null);
+    }
+
+    [PunRPC]
+    private void SetPlayersNameGlobal()
+    {
+        
+        foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
+        {
+
+            playerObject.GetComponent<Oyuncu>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun 
+            
+        }
+        
+    }
+
+
 }

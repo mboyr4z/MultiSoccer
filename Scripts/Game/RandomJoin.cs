@@ -40,6 +40,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
         GetComponent<PlayerSpawner>().SpawnPlayer();
         
+        
     }
 
     
