@@ -39,8 +39,9 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         PlayerPrefs.SetInt("playerOrder", PhotonNetwork.CurrentRoom.PlayerCount);
 
         GetComponent<PlayerSpawner>().SpawnPlayer();
-        
-        
+        GetComponent<BallSpawner>().SpawnBall();
+
+
     }
 
     

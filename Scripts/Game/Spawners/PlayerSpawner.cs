@@ -1,17 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Realtime;
 using Photon.Pun;
 using System.IO;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    PhotonView pv;
+    private PhotonView pv;
 
     public GameObject player;
-
-    public GameObject top;
 
     public static Vector3 spawnPoint;
 
@@ -57,12 +54,6 @@ public class PlayerSpawner : MonoBehaviour
         _localPlayer.GetComponent<Movement>().enabled = true;
         _localPlayer.GetComponent<Shot>().enabled = true;
 
-        //_localPlayer.GetComponent<Shot>().enabled = true;
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate(top.name, new Vector3(0, 0, 0), Quaternion.identity);
-        }
     }
 
 }

@@ -44,7 +44,7 @@ public class Room : MonoBehaviourPunCallbacks
         foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
         {
 
-            playerObject.GetComponent<Oyuncu>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun 
+            playerObject.GetComponent<Player>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun 
             
         }
         

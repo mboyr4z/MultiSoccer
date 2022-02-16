@@ -8,7 +8,7 @@ using Photon.Pun;
 
 
 
-public class Oyuncu : Singleton<Oyuncu>,IPunObservable
+public class Player : Singleton<Player>,IPunObservable
 {
     public static Cihaz cihaz;
 

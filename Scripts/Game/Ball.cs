@@ -121,6 +121,6 @@ public class Ball : Singleton<Ball>
     [PunRPC]
     void GolOldu(int golYiyen)
     {
-        Oyuncu.Instance.Gol(golYiyen);
+        Player.Instance.Gol(golYiyen);
     }
 }

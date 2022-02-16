@@ -24,7 +24,7 @@ public class Shot : MonoBehaviour
     {
         shotButton = GameObject.Find("ShotButton").GetComponent<Button>();
 
-        if(Oyuncu.cihaz == Cihaz.android)
+        if(Player.cihaz == Cihaz.android)
         {
             shotButton.onClick.AddListener(Shoot);
         }
@@ -35,7 +35,7 @@ public class Shot : MonoBehaviour
 
     private void Update()
     {
-        if (Oyuncu.cihaz != Cihaz.android && Input.GetKey(KeyCode.Space))
+        if (Player.cihaz != Cihaz.android && Input.GetKey(KeyCode.Space))
         {
             //print("Distance : " + Vector3.Distance(transform.position, Ball.Instance.transform.position).ToString());
             Shoot();
