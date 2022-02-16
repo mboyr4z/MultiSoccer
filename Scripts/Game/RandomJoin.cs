@@ -40,8 +40,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
         GetComponent<PlayerSpawner>().SpawnPlayer();
         GetComponent<BallSpawner>().SpawnBall();
-
-
+        GetComponent<GoalSpawner>().SpawnGoal();
     }
 
     

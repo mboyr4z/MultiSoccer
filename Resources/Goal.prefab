@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2801902427635496722}
   - component: {fileID: 1994000540477589399}
   - component: {fileID: 2186427452268956322}
+  - component: {fileID: 9046470617523220444}
   m_Layer: 0
-  m_Name: KaleController
+  m_Name: Goal
   m_TagString: kale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +103,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -148,3 +150,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2006359, y: 0.10908425}
   m_EdgeRadius: 0
+--- !u!114 &9046470617523220444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444639668997786593}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2551462ae626f34ab2872d23e7a1348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

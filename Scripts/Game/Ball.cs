@@ -84,7 +84,7 @@ public class Ball : Singleton<Ball>
         collision.gameObject.GetComponent<IDuvar>()?.carpisma(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         
         
@@ -116,7 +116,7 @@ public class Ball : Singleton<Ball>
             ortayaGit();
             pv.RPC("GolOldu", RpcTarget.All, golYiyen);
         }
-    }
+    }*/
 
     [PunRPC]
     void GolOldu(int golYiyen)

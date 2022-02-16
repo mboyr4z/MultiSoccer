@@ -6,11 +6,11 @@ using System.IO;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    private PhotonView pv;
+    public static Vector3 spawnPoint;
 
     public GameObject player;
 
-    public static Vector3 spawnPoint;
+    private PhotonView pv;
 
     private int playerOrder;
 
@@ -40,12 +40,12 @@ public class PlayerSpawner : MonoBehaviour
 
         if (playerOrder == 3)
         {
-            spawnPoint = new Vector3(0f, 4f, 0f);
+            spawnPoint = new Vector3(0f, -4f, 0f);
         }
 
         if (playerOrder == 4)
         {
-            spawnPoint = new Vector3(0f, -4f, 0f);
+            spawnPoint = new Vector3(0f, 4f, 0f);
         }
 
         
