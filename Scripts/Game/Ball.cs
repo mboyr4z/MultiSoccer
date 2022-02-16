@@ -42,15 +42,12 @@ public class Ball : Singleton<Ball>
 
     public void MoveLocal(Vector2 vuranPos, float guc)
     {
-        TextManager.Instance.Ekle(" ben cektim ");
         pv.RPC("MoveGlobal", RpcTarget.All, vuranPos, guc);
-        
     }
 
     [PunRPC]
     public void MoveGlobal(Vector2 vuranPos, float guc)
     {
-        TextManager.Instance.Ekle("Biri çekti");
         topPos = transform.position;
         yon = topPos - vuranPos;
         rb.velocity = yon * guc;

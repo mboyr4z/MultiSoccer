@@ -10,21 +10,22 @@ using Photon.Pun;
 
 public class Player : Singleton<Player>,IPunObservable
 {
+
     public static Cihaz cihaz;
 
-    [SerializeField] SpriteRenderer cerceve;
+    public static BackgroundColors backgroundColor;
+
+    public SpriteRenderer arkaPlan;
+
+    public SpriteRenderer cerceve;
 
     public Text nickName;
-
-    [SerializeField] private SpriteRenderer arkaPlan;
-
-    TextMeshProUGUI durum;
 
     private PhotonView pv;
 
     private Rigidbody2D rb;
 
-    private Vector3 ilkKonum;
+    private Vector3 firstSpawnPoint;
 
 
 
@@ -74,38 +75,37 @@ public class Player : Singleton<Player>,IPunObservable
         pv = GetComponent<PhotonView>();        
         
         rb = GetComponent<Rigidbody2D>();
-        durum = GameObject.Find("Durum").GetComponent<TextMeshProUGUI>();
        // sut.onClick.AddListener(sutCek);
 
 
         if (pv.IsMine)
         {
             renkAyarla();
-            ilkKonum = transform.position;
+            firstSpawnPoint = transform.position;
         }
     }
 
 
     private void renkAyarla()
     {
-        if (PlayerPrefs.GetInt("playerOrder") == 1)
+        TextManager.Instance.Ekle(PlayerPrefs.GetInt("playerOrder").ToString() + " kişi var odada");
+        switch (PlayerPrefs.GetInt("playerOrder"))
         {
-            arkaPlan.color = new Color(255, 0, 0, 255);
-        }
-
-        if (PlayerPrefs.GetInt("playerOrder") == 2)
-        {
-            arkaPlan.color = new Color(0, 255, 0, 255);
-        }
-
-        if (PlayerPrefs.GetInt("playerOrder") == 3)
-        {
-            arkaPlan.color = new Color(0, 0, 255, 255);
-        }
-
-        if (PlayerPrefs.GetInt("playerOrder") == 4)
-        {
-            arkaPlan.color = new Color(255, 255, 0, 255);
+            case 1:
+                backgroundColor = BackgroundColors.Red;
+                break;
+            case 2:
+                backgroundColor = BackgroundColors.Blue;
+                break;
+            case 3:
+                backgroundColor = BackgroundColors.Yellow;
+                break;
+            case 4:
+                backgroundColor = BackgroundColors.Green;
+                break;
+            default:
+                backgroundColor = BackgroundColors.Red;
+                break;
         }
     }
 
@@ -119,8 +119,8 @@ public class Player : Singleton<Player>,IPunObservable
 
     public void EskiKonumunaDon(int golYiyen)
     {
-            TextManager.Instance.Ekle("" + ilkKonum.ToString() + " konumuna gidiyom ");
-            transform.DOLocalMove(ilkKonum, 1).SetEase(Ease.Flash);
+            TextManager.Instance.Ekle("" + firstSpawnPoint.ToString() + " konumuna gidiyom ");
+            transform.DOLocalMove(firstSpawnPoint, 1).SetEase(Ease.Flash);
             Invoke("hizSifirla", 1f);
        
     }

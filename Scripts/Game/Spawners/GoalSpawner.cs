@@ -29,31 +29,37 @@ public class GoalSpawner : MonoBehaviour
 
     void Spawn()
     {
-        playerOrder = PlayerPrefs.GetInt("playerOrder");
-
-        if (playerOrder == 1)
+        switch (PlayerPrefs.GetInt("playerOrder"))
         {
-            spawnPoint = new Vector2(-9.95f, 0f);
-            angle = 90;
-        }
+            case 1:
+                spawnPoint = new Vector2(-9.95f, 0f);
+                angle = 90;
+                break;
 
-        if (playerOrder == 2)
-        {
-            spawnPoint = new Vector2(9.95f, 0f);
-            angle = 270;
-        }
+            case 2:
+                spawnPoint = new Vector2(9.95f, 0f);
+                angle = 270;
+                break;
 
-        if (playerOrder == 3)
-        {
-            spawnPoint = new Vector2(0f, -5.22f);
-            angle = 180;
-        }
+            case 3:
+                spawnPoint = new Vector2(0f, -5.22f);
+                angle = 180;
+                break;
 
-        if (playerOrder == 4)
-        {
-            spawnPoint = new Vector2(0f, 5.22f);
-            angle = 0;
+            case 4:
+                spawnPoint = new Vector2(0f, 5.22f);
+                angle = 0;
+                break;
+
+            default:
+                spawnPoint = new Vector2(-9.95f, 0f);
+                angle = 90;
+                break;
         }
+        
+
+      
+        
         GameObject _localGoal = PhotonNetwork.Instantiate(goal.name, spawnPoint, Quaternion.Euler(0, 0, angle));
         _localGoal.GetComponent<Goal>().enabled = true;
     }

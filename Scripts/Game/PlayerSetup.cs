@@ -9,6 +9,11 @@ public class PlayerSetup : MonoBehaviour
     {
         TextManager.Instance.Ekle("Geldim");
         Room.Instance.SetPlayersNameLocal();        // biri odaya girdiğinde tüm oyuncuların adları düzenlensin
+        Invoke("SetColor", 0.1f);
+    }
 
+    private void SetColor()
+    {
+        Room.Instance.SetPlayersColorsLocal(Player.backgroundColor, GetComponent<PhotonView>().ViewID);
     }
 }

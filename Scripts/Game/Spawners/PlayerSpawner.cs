@@ -10,14 +10,6 @@ public class PlayerSpawner : MonoBehaviour
 
     public GameObject player;
 
-    private PhotonView pv;
-
-    private int playerOrder;
-
-    private void Awake()
-    {
-        pv = GetComponent<PhotonView>();
-    }
 
     public void SpawnPlayer()
     {
@@ -26,28 +18,23 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        playerOrder = PlayerPrefs.GetInt("playerOrder");
-
-        if (playerOrder == 1)
-        {
-            spawnPoint = new Vector3(-8f, 0f, 0f);
+        switch (PlayerPrefs.GetInt("playerOrder")){
+            case 1:
+                spawnPoint = new Vector3(-8f, 0f, 0f);
+                break;
+            case 2:
+                spawnPoint = new Vector3(8f, 0f, 0f);
+                break;
+            case 3:
+                spawnPoint = new Vector3(0f, -4f, 0f);
+                break;
+            case 4:
+                spawnPoint = new Vector3(0f, 4f, 0f);
+                break;
+            default:
+                spawnPoint = new Vector3(-8f, 0f, 0f);
+                break;
         }
-
-        if (playerOrder == 2)
-        {
-            spawnPoint = new Vector3(8f, 0f, 0f);
-        }
-
-        if (playerOrder == 3)
-        {
-            spawnPoint = new Vector3(0f, -4f, 0f);
-        }
-
-        if (playerOrder == 4)
-        {
-            spawnPoint = new Vector3(0f, 4f, 0f);
-        }
-
         
         GameObject _localPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity);
         _localPlayer.GetComponent<PlayerSetup>().IsLocalPlayer();

@@ -32,7 +32,24 @@ public class Room : MonoBehaviourPunCallbacks
         }
     }
 
-    public void SetPlayersNameLocal()      //  her oyuncu localinde isimleri düzenlesin
+    public void SetPlayersColorsLocal(BackgroundColors backgroundColor, int playerViewId)
+    {
+
+        photonView.RPC("SetPlayersColorsGlobal", RpcTarget.All, backgroundColor, playerViewId);
+    }
+
+    [PunRPC]
+    private void SetPlayersColorsGlobal(BackgroundColors backgroundColor, int playerViewId)
+    {
+        TextManager.Instance.Ekle("Background Color : " + backgroundColor.ToString());
+        TextManager.Instance.Ekle("View ID : " + playerViewId.ToString());
+        /*foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
+        {
+            
+        }*/
+    }
+
+    public void SetPlayersNameLocal( )      //  her oyuncu localinde isimleri düzenlesin
     {
         photonView.RPC("SetPlayersNameGlobal",RpcTarget.All,null);
     }
@@ -43,12 +60,18 @@ public class Room : MonoBehaviourPunCallbacks
         
         foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
         {
-
-            playerObject.GetComponent<Player>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun 
-            
+            playerObject.GetComponent<Player>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun    
         }
         
     }
 
 
+}
+
+public enum BackgroundColors
+{
+    Blue,
+    Red,
+    Yellow,
+    Green
 }
