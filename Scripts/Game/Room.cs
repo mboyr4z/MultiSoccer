@@ -32,21 +32,41 @@ public class Room : MonoBehaviourPunCallbacks
         }
     }
 
-    public void SetPlayersColorsLocal(BackgroundColors backgroundColor, int playerViewId)
+    public void SetPlayersColorsLocal()
     {
-
-        photonView.RPC("SetPlayersColorsGlobal", RpcTarget.All, backgroundColor, playerViewId);
+        photonView.RPC("SetPlayersColorsGlobal", RpcTarget.All, null);
     }
 
     [PunRPC]
-    private void SetPlayersColorsGlobal(BackgroundColors backgroundColor, int playerViewId)
+    private void SetPlayersColorsGlobal()
     {
-        TextManager.Instance.Ekle("Background Color : " + backgroundColor.ToString());
-        TextManager.Instance.Ekle("View ID : " + playerViewId.ToString());
-        /*foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
+        foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
         {
+            switch ((int)(playerObject.GetComponent<PhotonView>().ViewID / 1000))
+            {
+                case 1:
+                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(255,0,0,255);
+                    break;
+                case 2:
+                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(0, 255, 0, 255);
+                    break;
+
+                case 3:
+                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(0, 0, 255, 255);
+                    break;
+
+                case 4:
+                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(255, 255, 0, 255);
+                    break;
+
+                default:
+                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(255, 0, 0, 255);
+                    break;
+
+            }
             
-        }*/
+           
+        }
     }
 
     public void SetPlayersNameLocal( )      //  her oyuncu localinde isimleri düzenlesin
@@ -66,12 +86,4 @@ public class Room : MonoBehaviourPunCallbacks
     }
 
 
-}
-
-public enum BackgroundColors
-{
-    Blue,
-    Red,
-    Yellow,
-    Green
 }

@@ -14,6 +14,6 @@ public class PlayerSetup : MonoBehaviour
 
     private void SetColor()
     {
-        Room.Instance.SetPlayersColorsLocal(Player.backgroundColor, GetComponent<PhotonView>().ViewID);
+        Room.Instance.SetPlayersColorsLocal();
     }
 }

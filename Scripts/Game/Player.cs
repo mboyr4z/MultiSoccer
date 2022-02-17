@@ -13,8 +13,6 @@ public class Player : Singleton<Player>,IPunObservable
 
     public static Cihaz cihaz;
 
-    public static BackgroundColors backgroundColor;
-
     public SpriteRenderer arkaPlan;
 
     public SpriteRenderer cerceve;
@@ -80,34 +78,11 @@ public class Player : Singleton<Player>,IPunObservable
 
         if (pv.IsMine)
         {
-            renkAyarla();
             firstSpawnPoint = transform.position;
         }
     }
 
 
-    private void renkAyarla()
-    {
-        TextManager.Instance.Ekle(PlayerPrefs.GetInt("playerOrder").ToString() + " kişi var odada");
-        switch (PlayerPrefs.GetInt("playerOrder"))
-        {
-            case 1:
-                backgroundColor = BackgroundColors.Red;
-                break;
-            case 2:
-                backgroundColor = BackgroundColors.Blue;
-                break;
-            case 3:
-                backgroundColor = BackgroundColors.Yellow;
-                break;
-            case 4:
-                backgroundColor = BackgroundColors.Green;
-                break;
-            default:
-                backgroundColor = BackgroundColors.Red;
-                break;
-        }
-    }
 
     public void Gol(int golYiyen)
     {
