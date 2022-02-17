@@ -17,6 +17,8 @@ public class Player : Singleton<Player>,IPunObservable
 
     public SpriteRenderer cerceve;
 
+    public GameObject Goal;
+
     public Text nickName;
 
     private PhotonView pv;
@@ -67,50 +69,30 @@ public class Player : Singleton<Player>,IPunObservable
 
     private void Start()
     {
-
-
-
         pv = GetComponent<PhotonView>();        
         
         rb = GetComponent<Rigidbody2D>();
-       // sut.onClick.AddListener(sutCek);
-
-
-        if (pv.IsMine)
-        {
-            firstSpawnPoint = transform.position;
-        }
     }
 
 
 
-    public void Gol(int golYiyen)
+    public void GolLocal()
     {
-        TextManager.Instance.Ekle(" gol ");
-        GolKontrolEt(golYiyen);
-        EskiKonumunaDon(golYiyen);
-        
+        TextManager.Instance.Ekle(" Tek Ben ");
+        PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);   // gol skorunu 1 artırır
+        yenildimi();
     }
 
-    public void EskiKonumunaDon(int golYiyen)
+
+    public void EskiKonumunaDon()
     {
-            TextManager.Instance.Ekle("" + firstSpawnPoint.ToString() + " konumuna gidiyom ");
-            transform.DOLocalMove(firstSpawnPoint, 1).SetEase(Ease.Flash);
+            TextManager.Instance.Ekle(PlayerSpawner.spawnPoint.ToString());
+            TextManager.Instance.Ekle("ESkiye gidiyom");
+            transform.DOLocalMove(PlayerSpawner.spawnPoint, 1).SetEase(Ease.Flash);
             Invoke("hizSifirla", 1f);
-       
-    }
-
-
-    public void GolKontrolEt(int golYiyen)
-    {
-        if(golYiyen == PlayerPrefs.GetInt("playerOrder") && pv.IsMine )
-        {
-            PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);
-            yenildimi();
-        }
     }
     
-    private void yenildimi()
+    public void yenildimi()
     {
 
         if(PlayerPrefs.GetInt("gol") == 3)
@@ -118,16 +100,6 @@ public class Player : Singleton<Player>,IPunObservable
             PhotonNetwork.LeaveRoom();
         }
         
-    }
-
-
-
-    void rengiEskiHalineGetir()
-    {
-        if (pv.IsMine)
-        {
-            cerceve.DOColor(new Color(255, 255, 255, 255), 1f);
-        }
     }
 
 

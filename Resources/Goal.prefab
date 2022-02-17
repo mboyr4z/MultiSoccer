@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9046470617523220444}
   m_Layer: 0
   m_Name: Goal
-  m_TagString: kale
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.007974625, y: -0.13515517}
@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2551462ae626f34ab2872d23e7a1348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localPlayer: {fileID: 0}

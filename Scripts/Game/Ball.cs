@@ -17,22 +17,6 @@ public class Ball : Singleton<Ball>
     private PhotonView pv;
 
 
-
-    // Ping problemi algoritması
-    /*public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-        else if (stream.IsReading)
-        {
-            transform.position = (Vector3)stream.ReceiveNext();// Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
-            transform.rotation = (Quaternion)stream.ReceiveNext();
-        }
-    }*/
-
     private void Start()
     {
         pv = GetComponent<PhotonView>();
@@ -54,24 +38,25 @@ public class Ball : Singleton<Ball>
     }
 
 
-    private void ortayaGit()
+    public void GoFirstPos()
     {
         transform.DOLocalMove(new Vector3(0, 0, 0), 1).SetEase(Ease.Flash);
-        Invoke("hizSifirla",1f);
-        Invoke("ColliderAc", 1f);    // golden 1 saniye sonra triggeri geri açılsın
+        CloseCollider();
+        Invoke("ResetVelocity",1f);
+        Invoke("OpenCollider", 1f);    // golden 1 saniye sonra triggeri geri açılsın
     }
 
-    void ColliderAc()
+    private void OpenCollider()
     {
         cc.enabled = true;
     }
 
-    void ColliderKapat()
+    private void CloseCollider()
     {
         cc.enabled = false;
     }
 
-    void hizSifirla()
+    void ResetVelocity()
     {
         rb.velocity = new Vector2(0,0);
     }
@@ -79,45 +64,5 @@ public class Ball : Singleton<Ball>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.gameObject.GetComponent<IDuvar>()?.carpisma(gameObject);
-    }
-
-   /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-        
-        Vector3 kalePos;
-        int golYiyen;
-
-        if (collision.gameObject.tag == "kale")
-        {
-            ColliderKapat();
-            kalePos = collision.gameObject.transform.position;
-
-            if (kalePos.x < -8f)
-            {
-                golYiyen = 1;
-            }
-            else if (kalePos.x > 8f)
-            {
-                golYiyen = 2;
-            }
-            else if (kalePos.y < -5f)
-            {
-                golYiyen = 3;
-            }
-            else
-            {
-                golYiyen = 4;
-            }
-
-            ortayaGit();
-            pv.RPC("GolOldu", RpcTarget.All, golYiyen);
-        }
-    }*/
-
-    [PunRPC]
-    void GolOldu(int golYiyen)
-    {
-        Player.Instance.Gol(golYiyen);
     }
 }

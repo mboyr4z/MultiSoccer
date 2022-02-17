@@ -10,6 +10,8 @@ public class PlayerSpawner : MonoBehaviour
 
     public GameObject player;
 
+    public static GameObject localPlayer;
+
 
     public void SpawnPlayer()
     {
@@ -36,10 +38,8 @@ public class PlayerSpawner : MonoBehaviour
                 break;
         }
         
-        GameObject _localPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity);
-        _localPlayer.GetComponent<PlayerSetup>().IsLocalPlayer();
-        _localPlayer.GetComponent<Movement>().enabled = true;
-        _localPlayer.GetComponent<Shot>().enabled = true;
+        localPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint, Quaternion.identity);
+        localPlayer.GetComponent<PlayerSetup>().IsLocalPlayer();
 
     }
 

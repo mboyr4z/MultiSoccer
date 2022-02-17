@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: -609429124038008238}
   - component: {fileID: 6988629018340844203}
   - component: {fileID: 5854646498256824340}
+  - component: {fileID: -672495982604911395}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -420,6 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arkaPlan: {fileID: 4523979399072964038}
   cerceve: {fileID: 8834578923795622967}
+  Goal: {fileID: 0}
   nickName: {fileID: 8834578924728768573}
 --- !u!58 &7093728037845095455
 CircleCollider2D:
@@ -549,6 +551,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31019ef692feb140a00dfb9d1a1e5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-672495982604911395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834578924717594957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a735225fd441747bb56ea1b3e3a37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 7444639668997786593, guid: f199721a6b79e3b43879a0cf18d52d53, type: 3}
 --- !u!1 &8834578924728768575
 GameObject:
   m_ObjectHideFlags: 0

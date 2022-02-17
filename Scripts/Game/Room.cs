@@ -63,9 +63,7 @@ public class Room : MonoBehaviourPunCallbacks
                     playerObject.GetComponent<Player>().arkaPlan.color = new Color(255, 0, 0, 255);
                     break;
 
-            }
-            
-           
+            }  
         }
     }
 

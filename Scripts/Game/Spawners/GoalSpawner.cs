@@ -12,11 +12,7 @@ public class GoalSpawner : MonoBehaviour
 
     private PhotonView pv;
 
-    private int playerOrder;
-
     private float angle;
-    
-
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
@@ -27,7 +23,8 @@ public class GoalSpawner : MonoBehaviour
         Invoke("Spawn", 0.3f);
     }
 
-    void Spawn()
+   
+    private void Spawn()
     {
         switch (PlayerPrefs.GetInt("playerOrder"))
         {
@@ -62,5 +59,6 @@ public class GoalSpawner : MonoBehaviour
         
         GameObject _localGoal = PhotonNetwork.Instantiate(goal.name, spawnPoint, Quaternion.Euler(0, 0, angle));
         _localGoal.GetComponent<Goal>().enabled = true;
+        _localGoal.GetComponent<Goal>().Setup(gameObject);
     }
 }

@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 169803671}
   - component: {fileID: 169803672}
   - component: {fileID: 169803673}
-  - component: {fileID: 169803674}
   m_Layer: 0
   m_Name: RandomJoin
   m_TagString: Untagged
@@ -263,19 +262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 7585327329560166819, guid: 77052fe08ff1aa8419753969064e4f75, type: 3}
---- !u!114 &169803674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169803669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a735225fd441747bb56ea1b3e3a37b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goal: {fileID: 7444639668997786593, guid: f199721a6b79e3b43879a0cf18d52d53, type: 3}
 --- !u!1 &380587732
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +330,7 @@ Transform:
   m_LocalScale: {x: 1.931911, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 918500069}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &437723231
 GameObject:
@@ -955,9 +941,9 @@ Transform:
   - {fileID: 1171248140}
   - {fileID: 441546818}
   - {fileID: 597392354}
+  - {fileID: 380587735}
   - {fileID: 2107131397}
   - {fileID: 995523024}
-  - {fileID: 380587735}
   - {fileID: 1327826438}
   - {fileID: 1511799949}
   - {fileID: 1431686064}
@@ -1109,7 +1095,7 @@ Transform:
   m_LocalScale: {x: 2.9841096, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 918500069}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059435212
 GameObject:
@@ -1722,7 +1708,7 @@ Transform:
   m_LocalScale: {x: 2.95, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 918500069}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4559058537011052753
 PrefabInstance:
