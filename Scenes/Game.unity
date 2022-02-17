@@ -807,16 +807,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918500068}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267994ba88ae30e40a8e3e3603c0006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kaleYerleri:
+  Goals:
   - {fileID: 597392351}
   - {fileID: 380587732}
-  - {fileID: 2107131394}
   - {fileID: 995523021}
+  - {fileID: 2107131394}
 --- !u!1 &805972911
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 781781687}
   - component: {fileID: 918500071}
   m_Layer: 0
-  m_Name: Saha
+  m_Name: Stadium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

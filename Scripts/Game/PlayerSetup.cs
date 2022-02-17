@@ -10,10 +10,17 @@ public class PlayerSetup : MonoBehaviour
         TextManager.Instance.Ekle("Geldim");
         Room.Instance.SetPlayersNameLocal();        // biri odaya girdiğinde tüm oyuncuların adları düzenlensin
         Invoke("SetColor", 0.1f);
+        Invoke("SetTriggerGoal",0.1f);
     }
 
-    private void SetColor()
+    private void SetColor()     // herkesin odadaki kişi sayısınca renk koyanilmesi için
     {
         Room.Instance.SetPlayersColorsLocal();
     }
+
+    private void SetTriggerGoal()       // herkesin odadaki kişi sayısınca kale triggerlarını açması için
+    {
+        Stadium.Instance.OpenTriggerGoalLocal();
+    }
+
 }

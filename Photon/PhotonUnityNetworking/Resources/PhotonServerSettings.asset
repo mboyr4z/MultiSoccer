@@ -46,6 +46,7 @@ MonoBehaviour:
   - SetPlayersNameGlobal
   - IntroduceYourSelf
   - SetPlayersColorsGlobal
+  - OpenTriggerGoalGlobal
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
