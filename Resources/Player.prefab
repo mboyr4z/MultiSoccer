@@ -510,7 +510,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arkaPlan: {fileID: 4523979399072964038}
-  cerceve: {fileID: 8834578923795622967}
   Goal: {fileID: 0}
   nickName: {fileID: 8834578924728768573}
 --- !u!114 &-609429124038008238
@@ -539,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vurusGucu: 30
+  cerceve: {fileID: 8834578923795622967}
 --- !u!114 &5854646498256824340
 MonoBehaviour:
   m_ObjectHideFlags: 0

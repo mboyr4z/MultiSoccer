@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using DG.Tweening;
 
 public class Shot : MonoBehaviour
 {
 
     [SerializeField] private float vurusGucu;
+
+    public SpriteRenderer cerceve;
 
     private Button shotButton;
 
@@ -17,7 +20,9 @@ public class Shot : MonoBehaviour
 
     private float nextFire = 0.0f;
 
-    
+
+
+
 
 
     void Start()
@@ -42,15 +47,35 @@ public class Shot : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        if(Time.time > nextFire && pv.IsMine)   // after 0.5f and isMine 
+        pv.RPC("RPC_ChangeColorOnShot", RpcTarget.All, pv.ViewID);
+        if (Time.time > nextFire && pv.IsMine)   // after 0.5f and isMine 
         {       
             if (Vector3.Distance(transform.position, Ball.Instance.transform.position ) < 1.4f){ // player and ball distance smaller than 1.1f
                 nextFire = Time.time + fireRate;
                 Ball.Instance.MoveLocal(transform.position, vurusGucu);   // move functions is run
             }
         }
-           // cerceve.DOColor(new Color(0, 255, 255, 255), 0.01f).OnComplete(() => rengiEskiHalineGetir());
+    }
+
+    [PunRPC]
+    public void RPC_ChangeColorOnShot(int viewID)
+    {
+        foreach (var item in GameObject.FindGameObjectsWithTag("player"))
+        { 
+            if(item.GetComponent<PhotonView>().ViewID == viewID)
+            {
+                item.GetComponent<Shot>().ChangeColorOnShoot();
+            }
+        }
+    }
+
+    
+
+    private void ChangeColorOnShoot()
+    {
+        print("vuruyom");
+        cerceve.DOColor(new Color(8, 181, 171, 255), 2f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
     }
 }

@@ -15,7 +15,7 @@ public class Player : Singleton<Player>,IPunObservable
 
     public SpriteRenderer arkaPlan;
 
-    public SpriteRenderer cerceve;
+
 
     public GameObject Goal;
 
@@ -91,6 +91,7 @@ public class Player : Singleton<Player>,IPunObservable
         ScoreController.Instance.Scores[playerOrder - 1].GetComponent<Score>().SetScoreLocal(score);
     }
 
+   
 
 
     public void GoFirstSpawnPosition()
