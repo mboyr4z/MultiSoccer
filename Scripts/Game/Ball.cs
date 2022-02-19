@@ -42,7 +42,7 @@ public class Ball : Singleton<Ball>
     {
         transform.DOLocalMove(new Vector3(0, 0, 0), 1).SetEase(Ease.Flash);
         CloseCollider();
-        Invoke("ResetVelocity",1f);
+        ResetVelocity();
         Invoke("OpenCollider", 1f);    // golden 1 saniye sonra triggeri geri açılsın
     }
 

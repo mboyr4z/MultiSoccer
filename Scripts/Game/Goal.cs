@@ -14,27 +14,29 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball"))  // kaleyi üreten cihaz çalıştırır
+        if (collision.CompareTag("Ball"))  // HER CİHAZDA golYiyen kalelerde , çalıştırır
         {
             if (GetComponent<PhotonView>().IsMine)      // sadece gol yiyen kale tek bir cihazda çalışır
             {
                 _localPlayer.GetComponent<Player>().GolLocal();  // sadece gol yiyen kişide çalışır
             }
 
+            // Tüm Makinelerde gol yiyen kalelerde çalışır
+            Ball.Instance.GoFirstPos();
 
-            TextManager.Instance.Ekle("Tüm Makineler");
+            //TextManager.Instance.Ekle("Tüm Makineler");
             foreach (var goal in GameObject.FindGameObjectsWithTag("Goal"))         // Tüm makineler de tüm kalelerde çalışır
             {
-                TextManager.Instance.Ekle("Tüm Kaleler");
+                //TextManager.Instance.Ekle("Tüm Kaleler");
                 if (goal.GetComponent<PhotonView>().IsMine)     // ve sadece kendine ait olan kalelerde çalışır
                 {
-                    TextManager.Instance.Ekle("Sadece Benim Kalem");
-                    goal.GetComponent<Goal>()._localPlayer.GetComponent<Player>().EskiKonumunaDon();
+                    //TextManager.Instance.Ekle("Sadece Benim Kalem");
+                    goal.GetComponent<Goal>()._localPlayer.GetComponent<Player>().GoFirstSpawnPosition();
                     break;
                 }
             }
+
+            
         }
     }
-
-    
 }

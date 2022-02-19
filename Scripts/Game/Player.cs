@@ -78,21 +78,19 @@ public class Player : Singleton<Player>,IPunObservable
 
     public void GolLocal()
     {
-        TextManager.Instance.Ekle(" Tek Ben ");
         PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);   // gol skorunu 1 artırır
-        yenildimi();
+        TextManager.Instance.Ekle("Gol Yedim. Golüm : " + PlayerPrefs.GetInt("gol").ToString());
+        AmILose();
     }
 
 
-    public void EskiKonumunaDon()
+    public void GoFirstSpawnPosition()
     {
-            TextManager.Instance.Ekle(PlayerSpawner.spawnPoint.ToString());
-            TextManager.Instance.Ekle("ESkiye gidiyom");
             transform.DOLocalMove(PlayerSpawner.spawnPoint, 1).SetEase(Ease.Flash);
-            Invoke("hizSifirla", 1f);
+            Invoke("ResetVelocity", 1f);
     }
     
-    public void yenildimi()
+    public void AmILose()
     {
 
         if(PlayerPrefs.GetInt("gol") == 3)
@@ -103,9 +101,8 @@ public class Player : Singleton<Player>,IPunObservable
     }
 
 
-    void hizSifirla()
+    void ResetVelocity()
     {
-        if(pv.IsMine)
         rb.velocity = new Vector2(0, 0);
     }
 
