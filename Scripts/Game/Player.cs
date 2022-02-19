@@ -71,6 +71,7 @@ public class Player : Singleton<Player>,IPunObservable
         pv = GetComponent<PhotonView>();        
         
         rb = GetComponent<Rigidbody2D>();
+
     }
 
 
@@ -78,9 +79,7 @@ public class Player : Singleton<Player>,IPunObservable
     public void GolLocal()
     {
         PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);   // gol skorunu 1 artırır
-        
         pv.RPC("SetScoreGlobal",RpcTarget.All, PlayerPrefs.GetInt("playerOrder"),PlayerPrefs.GetInt("gol"));
-       
         AmILose();
 
 
@@ -89,8 +88,6 @@ public class Player : Singleton<Player>,IPunObservable
     [PunRPC]
     private void SetScoreGlobal(int playerOrder, int score)
     {
-        TextManager.Instance.Ekle("Herkeste çağrıldı. bana gelen parametre : " + playerOrder +  "benim siram : "  + PlayerPrefs.GetInt("playerOrder") + " .\n" );
-        TextManager.Instance.Ekle("\nBana parametre olarak gelen Score : " + score + " . Benim sckorum ise : " + PlayerPrefs.GetInt("playerOrder"));
         ScoreController.Instance.Scores[playerOrder - 1].GetComponent<Score>().SetScoreLocal(score);
     }
 

@@ -361,7 +361,6 @@ GameObject:
   - component: {fileID: 6988629018340844203}
   - component: {fileID: 5854646498256824340}
   - component: {fileID: -672495982604911395}
-  - component: {fileID: -4665429533187704566}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -565,19 +564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 7444639668997786593, guid: f199721a6b79e3b43879a0cf18d52d53, type: 3}
---- !u!114 &-4665429533187704566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8834578924717594957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f0636dc9fa9cf64f847929754d246ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 5686988412276552200, guid: f6ab55a4730a0674cb905d3cf3132d8b, type: 3}
 --- !u!1 &8834578924728768575
 GameObject:
   m_ObjectHideFlags: 0
