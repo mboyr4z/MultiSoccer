@@ -19,14 +19,12 @@ public class Shot : MonoBehaviour
     private float fireRate = 0.5f;
 
     private float nextFire = 0.0f;
-
-
-
-
-
+    
+    
 
     void Start()
     {
+        
         shotButton = GameObject.Find("ShotButton").GetComponent<Button>();
 
         if(Player.cihaz == Cihaz.android)
@@ -42,16 +40,16 @@ public class Shot : MonoBehaviour
     {
         if (Player.cihaz != Cihaz.android && Input.GetKey(KeyCode.Space))
         {
-            //print("Distance : " + Vector3.Distance(transform.position, Ball.Instance.transform.position).ToString());
             Shoot();
         }
     }
 
     private void Shoot()
     {
-        pv.RPC("RPC_ChangeColorOnShot", RpcTarget.All, pv.ViewID);
+        
         if (Time.time > nextFire && pv.IsMine)   // after 0.5f and isMine 
-        {       
+        {
+            pv.RPC("RPC_ChangeColorOnShot", RpcTarget.All, pv.ViewID);
             if (Vector3.Distance(transform.position, Ball.Instance.transform.position ) < 1.4f){ // player and ball distance smaller than 1.1f
                 nextFire = Time.time + fireRate;
                 Ball.Instance.MoveLocal(transform.position, vurusGucu);   // move functions is run
@@ -71,11 +69,16 @@ public class Shot : MonoBehaviour
         }
     }
 
-    
 
-    private void ChangeColorOnShoot()
+
+    private void ChangeColorOnShoot()       // 2 harekette önceden varsa durdurur daha sonra hareketlere tekrar başlar
     {
-        print("vuruyom");
-        cerceve.DOColor(new Color(8, 181, 171, 255), 2f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
+        DOTween.Kill(1);
+        DOTween.Kill(2);        // önce beyazlamayı durdur
+        cerceve.DOColor(Color.blue, 0.1f).SetEase(Ease.OutFlash).SetId(1) // mavileşme başlar
+        .OnComplete(() =>
+        {
+            cerceve.DOColor(Color.white, 0.3f).SetEase(Ease.Linear).SetId(2);
+        });
     }
 }
