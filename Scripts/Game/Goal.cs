@@ -18,13 +18,9 @@ public class Goal : MonoBehaviour
         {
             if (GetComponent<PhotonView>().IsMine)      // sadece gol yiyen kale tek bir cihazda çalışır
             {
-                TextManager.Instance.Ekle("yedim ..");
                 _localPlayer.GetComponent<Player>().GolLocal();  // sadece gol yiyen kişide çalışır
             }
-            else
-            {
-                TextManager.Instance.Ekle("yemedim ..");
-            }
+            
 
             // Tüm Makinelerde gol yiyen kalelerde çalışır
             Ball.Instance.GoFirstPos();

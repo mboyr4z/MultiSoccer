@@ -26,7 +26,7 @@ public class GoalSpawner : MonoBehaviour
    
     private void Spawn()
     {
-        switch (PlayerPrefs.GetInt("playerOrder"))
+        switch (Data.Instance.PlayerOrder)
         {
             case 1:
                 spawnPoint = new Vector2(-9.95f, 0f);

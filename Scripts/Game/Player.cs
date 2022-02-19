@@ -78,8 +78,8 @@ public class Player : Singleton<Player>,IPunObservable
 
     public void GolLocal()
     {
-        PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);   // gol skorunu 1 artırır
-        pv.RPC("SetScoreGlobal",RpcTarget.All, PlayerPrefs.GetInt("playerOrder"),PlayerPrefs.GetInt("gol"));
+        Data.Instance.Gol++;
+        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.Instance.PlayerOrder,Data.Instance.Gol);
         AmILose();
 
 
@@ -101,7 +101,7 @@ public class Player : Singleton<Player>,IPunObservable
     
     private void AmILose()
     {
-        if(PlayerPrefs.GetInt("gol") == 3)
+        if(Data.Instance.Gol == 3)
         {
             PhotonNetwork.LeaveRoom();
         }

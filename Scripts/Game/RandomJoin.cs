@@ -9,6 +9,8 @@ using DG.Tweening;
 
 public class RandomJoin : MonoBehaviourPunCallbacks
 {
+
+    public static float time;
     void Start()
     {
         TextManager.Instance.UzerineYaz("OFFLINE");
@@ -35,10 +37,10 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
-        PlayerPrefs.SetInt("gol", 0);
-        PlayerPrefs.SetInt("playerOrder", PhotonNetwork.CurrentRoom.PlayerCount);
-        TextManager.Instance.Ekle("playerOrder : " + PlayerPrefs.GetInt("playerOrder").ToString()); 
 
+        Data.Instance.Gol = 0;
+        Data.Instance.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
+      
         GetComponent<PlayerSpawner>().SpawnPlayer();
         GetComponent<BallSpawner>().SpawnBall();
     }
