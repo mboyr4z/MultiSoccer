@@ -23,7 +23,8 @@ public class Goal : MonoBehaviour
 
             // Tüm Makinelerde gol yiyen kalelerde çalışır
             Ball.Instance.GoFirstPos();
-
+            
+            
             //TextManager.Instance.Ekle("Tüm Makineler");
             foreach (var goal in GameObject.FindGameObjectsWithTag("Goal"))         // Tüm makineler de tüm kalelerde çalışır
             {

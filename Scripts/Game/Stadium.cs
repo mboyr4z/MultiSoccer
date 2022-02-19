@@ -26,10 +26,6 @@ public class Stadium : Singleton<Stadium>
         {
             Goals[i].GetComponent<BoxCollider2D>().isTrigger = true;
         }
-
-
-
-        TextManager.Instance.UzerineYaz(playerCount + " kisi var.");
     }
     
 }

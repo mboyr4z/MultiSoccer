@@ -37,6 +37,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
         PlayerPrefs.SetInt("gol", 0);
         PlayerPrefs.SetInt("playerOrder", PhotonNetwork.CurrentRoom.PlayerCount);
+        TextManager.Instance.Ekle("playerOrder : " + PlayerPrefs.GetInt("playerOrder").ToString()); 
 
         GetComponent<PlayerSpawner>().SpawnPlayer();
         GetComponent<BallSpawner>().SpawnBall();

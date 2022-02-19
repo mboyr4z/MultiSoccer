@@ -25,10 +25,10 @@ public class Room : MonoBehaviourPunCallbacks
     {
         if (scene.buildIndex == 1)      //s ahne 1 yüklendiğinde
         {
-            foreach (Transform manager in transform)
+           /* foreach (Transform manager in transform)
             {
                 manager.gameObject.SetActive(true);
-            }
+            }*/
         }
     }
 

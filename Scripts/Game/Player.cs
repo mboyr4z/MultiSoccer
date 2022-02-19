@@ -25,7 +25,6 @@ public class Player : Singleton<Player>,IPunObservable
 
     private Rigidbody2D rb;
 
-    private Vector3 firstSpawnPoint;
 
 
 
@@ -79,25 +78,36 @@ public class Player : Singleton<Player>,IPunObservable
     public void GolLocal()
     {
         PlayerPrefs.SetInt("gol", PlayerPrefs.GetInt("gol") + 1);   // gol skorunu 1 artırır
-        TextManager.Instance.Ekle("Gol Yedim. Golüm : " + PlayerPrefs.GetInt("gol").ToString());
+        
+        pv.RPC("SetScoreGlobal",RpcTarget.All, PlayerPrefs.GetInt("playerOrder"),PlayerPrefs.GetInt("gol"));
+       
         AmILose();
+
+
     }
+
+    [PunRPC]
+    private void SetScoreGlobal(int playerOrder, int score)
+    {
+        TextManager.Instance.Ekle("Herkeste çağrıldı. bana gelen parametre : " + playerOrder +  "benim siram : "  + PlayerPrefs.GetInt("playerOrder") + " .\n" );
+        TextManager.Instance.Ekle("\nBana parametre olarak gelen Score : " + score + " . Benim sckorum ise : " + PlayerPrefs.GetInt("playerOrder"));
+        ScoreController.Instance.Scores[playerOrder - 1].GetComponent<Score>().SetScoreLocal(score);
+    }
+
 
 
     public void GoFirstSpawnPosition()
     {
-            transform.DOLocalMove(PlayerSpawner.spawnPoint, 1).SetEase(Ease.Flash);
-            Invoke("ResetVelocity", 1f);
+        transform.DOLocalMove(PlayerSpawner.spawnPoint, 1).SetEase(Ease.Flash);
+        Invoke("ResetVelocity", 1f);
     }
     
-    public void AmILose()
+    private void AmILose()
     {
-
         if(PlayerPrefs.GetInt("gol") == 3)
         {
             PhotonNetwork.LeaveRoom();
         }
-        
     }
 
 
