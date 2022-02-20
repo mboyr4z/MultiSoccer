@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IPunObservable
 {
 
     [SerializeField] private float hiz;
@@ -12,6 +13,26 @@ public class Movement : MonoBehaviour
     private float yatay, dikey;
 
     private Rigidbody2D rb;
+
+
+    // Ping problemi algoritması
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (GetComponent<PhotonView>().IsMine)
+        {
+            if (stream.IsWriting)
+            {
+                stream.SendNext(transform.position);
+                stream.SendNext(transform.rotation);
+            }
+        }
+        else if (stream.IsReading)
+        {
+            transform.position = Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+        } 
+        
+    }
 
     private void Start()
     {

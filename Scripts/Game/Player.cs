@@ -8,14 +8,11 @@ using Photon.Pun;
 
 
 
-public class Player : Singleton<Player>,IPunObservable
+public class Player : Singleton<Player>
 {
-
     public static Cihaz cihaz;
 
     public SpriteRenderer arkaPlan;
-
-
 
     public GameObject Goal;
 
@@ -28,21 +25,6 @@ public class Player : Singleton<Player>,IPunObservable
 
 
 
-    // Ping problemi algoritması
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        /*if (stream.IsWriting)
-        {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-        else if (stream.IsReading)
-        {
-            transform.position = Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
-            transform.rotation = (Quaternion)stream.ReceiveNext();
-        } 
-        */
-    }
 
 
     private void Awake()
