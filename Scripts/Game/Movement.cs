@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour, IPunObservable
     // Ping problemi algoritması
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (GetComponent<PhotonView>().IsMine)
+        /*if (GetComponent<PhotonView>().IsMine)
         {
             if (stream.IsWriting)
             {
@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour, IPunObservable
         {
             transform.position = Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
             transform.rotation = (Quaternion)stream.ReceiveNext();
-        } 
+        } */
         
     }
 
