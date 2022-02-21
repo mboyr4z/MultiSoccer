@@ -15,26 +15,25 @@ public class Movement : MonoBehaviour, IPunObservable
 
     private Rigidbody2D rb;
 
+    private bool isMine = false;
+
     private void Awake()
     {
+        isMine = GetComponent<PhotonView>().IsMine;
         joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
-        print("start1");
         rb = GetComponent<Rigidbody2D>();
-        print("start2");
     }
 
 
     // Ping problemi algoritması
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
+        if (stream.IsWriting && isMine)
         {
-            print("write");
             stream.SendNext(rb.velocity);
         }
         else
         {
-            print("read");
             rb.velocity = (Vector2)stream.ReceiveNext();
         }         
     }
