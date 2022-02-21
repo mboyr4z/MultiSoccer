@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour, IPunObservable
 {
+    
 
     [SerializeField] private float hiz;
 
@@ -14,32 +15,31 @@ public class Movement : MonoBehaviour, IPunObservable
 
     private Rigidbody2D rb;
 
+    private void Awake()
+    {
+        joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
+        print("start1");
+        rb = GetComponent<Rigidbody2D>();
+        print("start2");
+    }
+
 
     // Ping problemi algoritması
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        /*if (GetComponent<PhotonView>().IsMine)
+        if (stream.IsWriting)
         {
-            if (stream.IsWriting)
-            {
-                stream.SendNext(transform.position);
-                stream.SendNext(transform.rotation);
-            }
+            print("write");
+            stream.SendNext(rb.velocity);
         }
-        else if (stream.IsReading)
+        else
         {
-            transform.position = Vector3.Slerp(transform.position, (Vector3)stream.ReceiveNext(), 0.2f);
-            transform.rotation = (Quaternion)stream.ReceiveNext();
-        } */
-        
+            print("read");
+            rb.velocity = (Vector2)stream.ReceiveNext();
+        }         
     }
 
-    private void Start()
-    {
-
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
-        rb = GetComponent<Rigidbody2D>();
-    }
+    
     private void FixedUpdate()
     {
             if (Player.cihaz == Cihaz.android)

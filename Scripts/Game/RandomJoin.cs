@@ -36,6 +36,9 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+
+        PhotonNetwork.SendRate = 20;
+        PhotonNetwork.SerializationRate = 10;
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
 
         Data.Instance.Gol = 0;
@@ -43,6 +46,8 @@ public class RandomJoin : MonoBehaviourPunCallbacks
       
         GetComponent<PlayerSpawner>().SpawnPlayer();
         GetComponent<BallSpawner>().SpawnBall();
+
+
     }
 
     
