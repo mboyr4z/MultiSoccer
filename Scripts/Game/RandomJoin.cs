@@ -10,6 +10,15 @@ using DG.Tweening;
 public class RandomJoin : MonoBehaviourPunCallbacks
 {
 
+    public static RandomJoin instance;
+
+    int sayac = 0;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public static float time;
     void Start()
     {
@@ -22,7 +31,11 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         TextManager.Instance.UzerineYaz("CONNECTED SERVER.");
-        PhotonNetwork.JoinLobby();
+        if(sayac == 0)
+        {
+            PhotonNetwork.JoinLobby();
+        }
+
         TextManager.Instance.UzerineYaz("CONNECTING LOBBY...");
     }
 
@@ -42,14 +55,29 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         PhotonNetwork.SerializationRate = 10;
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
 
-        Data.Instance.Gol = 0;
+        Data.Instance.Gol = 0;      //odaya katıldığında gol ve oyuncu sırası ayarlanır
         Data.Instance.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
       
-        GetComponent<PlayerSpawner>().SpawnPlayer();
-        GetComponent<BallSpawner>().SpawnBall();
+        GetComponent<PlayerSpawner>().SpawnPlayer();        // oyuncu üret
+        GetComponent<BallSpawner>().SpawnBall();            // top üret
 
 
     }
 
-    
+    public void LeaveRoom()
+    {
+        sayac++;
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LeaveLobby();
+    }
+
+    public override void OnLeftLobby()
+    {
+        PhotonNetwork.OfflineMode = true;       // tekrar mastera bağlanmasın odadan ayrılınca
+    }
+
 }
