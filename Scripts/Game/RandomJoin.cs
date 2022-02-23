@@ -13,6 +13,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public static float time;
     void Start()
     {
+        print("giriş");
         TextManager.Instance.UzerineYaz("OFFLINE");
         PhotonNetwork.ConnectUsingSettings();
         TextManager.Instance.UzerineYaz("CONNECTING SERVER...");
