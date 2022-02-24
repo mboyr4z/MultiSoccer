@@ -28,6 +28,8 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         TextManager.Instance.UzerineYaz("CONNECTING SERVER...");
     }
 
+    
+
     public override void OnConnectedToMaster()
     {
         TextManager.Instance.UzerineYaz("CONNECTED SERVER.");

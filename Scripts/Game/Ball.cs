@@ -37,6 +37,8 @@ public class Ball : Singleton<Ball>
         rb.velocity = yon * guc;
     }
 
+    
+
 
     public void GoFirstPos()
     {
