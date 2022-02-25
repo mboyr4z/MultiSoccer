@@ -5,6 +5,10 @@ using Photon.Pun;
 
 public class PlayerSetup : MonoBehaviour
 {
+
+    [SerializeField] private GameObject ScoreListItem;
+    [SerializeField] private Transform ScoreListContent;
+
     public void IsLocalPlayer()
     {
         GetComponent<Movement>().enabled = true;    // hareket aktif
@@ -13,6 +17,7 @@ public class PlayerSetup : MonoBehaviour
 
         Room.Instance.SetPlayersNameLocal();        // biri odaya girdiğinde tüm oyuncuların adları düzenlensin
         ScoreController.Instance.SetScorsLocal();    // biri odaya girdiğinde herkesin skor tablosu konusun
+        GetComponent<PhotonView>().RPC("AddScoreItem", RpcTarget.All,null);     // kişi adedince scoreListItem EKLENSİN
         Invoke("SetColor", 0.1f);
         Invoke("SetTriggerGoal",0.1f);
     }
@@ -26,5 +31,19 @@ public class PlayerSetup : MonoBehaviour
     {
         Stadium.Instance.OpenTriggerGoalLocal();
     }
+
+    [PunRPC]
+    private void AddScoreItem()
+    {
+        foreach (Transform scoreItem in ScoreListContent)    // önce hepsini temizle
+        {
+            Destroy(scoreItem.gameObject);
+        }
+
+        for (int i = 0; i < PhotonNetwork.CountOfPlayersInRooms; i++)
+        {
+            Instantiate(ScoreListItem,ScoreListContent).GetComponent<ScoreListItem>().Setup(PhotonNetwork.NickName, 3, 0, Data.Instance.PlayerOrder );
+        }
+    } 
 
 }

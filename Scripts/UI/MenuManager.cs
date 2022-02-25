@@ -15,18 +15,18 @@ public class MenuManager : MonoBehaviour
 
     public void OpenMenu(string menuName)
     {
-        print(menuName + "  verisi geldi");
+//        print(menuName + "  verisi geldi");
         for (int i = 0; i < menus.Length; i++)
         {
-            print("for");
+            //print("for");
             if(menus[i].menuName == menuName)
             {
-                print("if gelenle eşit");
+                //print("if gelenle eşit");
                 menus[i].Open();
             }
             else if(menus[i].open)
             {
-                print("Açik olan kapatıldı");
+               // print("Açik olan kapatıldı");
                 CloseMenu(menus[i]);
             }
         }

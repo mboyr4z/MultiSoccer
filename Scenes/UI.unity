@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &96396872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3716,7 +3716,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3728,9 +3728,9 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 514
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -5340,7 +5340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1954045625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5457,17 +5457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03320afb37c7214e9233f29cc1a4d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNameInput: {fileID: 771888766}
-  MaxPlayerInput: {fileID: 746242297}
-  errorText: {fileID: 1169085725}
-  roomNameText: {fileID: 1828599005}
-  roomListContent: {fileID: 2025633154}
-  playerListContent: {fileID: 1644013559}
-  roomListItemPrefab: {fileID: 5522614138255535046, guid: e61a4b841046b2a49b338a2e70d44531,
-    type: 3}
-  playerListItemPrefab: {fileID: 9150468054622765667, guid: 304a64e0a2005014eb2d95da81df0b33,
-    type: 3}
-  startGameButton: {fileID: 358308705}
 --- !u!1 &2025633153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5646,7 +5635,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5658,9 +5647,9 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
-  m_textAlignment: 258
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
