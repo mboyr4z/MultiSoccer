@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class Buttonn : MonoBehaviour
 {
     [SerializeField] private string menuName;
     private void Start()
     {
-        
+        GetComponent<Button>().onClick.AddListener(OpenMenu);
     }
 
     private void OpenMenu()
