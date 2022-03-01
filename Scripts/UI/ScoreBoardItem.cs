@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreListItem : MonoBehaviour
+public class ScoreBoardItem : MonoBehaviour
 {
     [SerializeField] private Text Name;
     [SerializeField] private Text Level;
     [SerializeField] private Text Gol;
+    
 
     private int _playerOrder;
     

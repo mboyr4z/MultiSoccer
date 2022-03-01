@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreBoardItem : MonoBehaviour
+public class S : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

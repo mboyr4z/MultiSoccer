@@ -15,9 +15,11 @@ public class PlayerSetup : MonoBehaviour
         GetComponent<Shot>().enabled = true;        // şut aktif
         GetComponent<GoalSpawner>().SpawnGoal();    // kale aktif
 
+        //MenuManager.Instance.menus[0].GetComponent<ScoreBoard>().SetActiveScoreBoardItemsLocal(PhotonNetwork.CountOfPlayersInRooms + 1); // scoreboıarda erişir
+        ScoreBoard.Instance.SetActiveScoreBoardItemsLocal(PhotonNetwork.CountOfPlayersInRooms + 1);     // biri ordaya girdiğinde scoreBoard elemanlarının aktifliği açılsın
+
         Room.Instance.SetPlayersNameLocal();        // biri odaya girdiğinde tüm oyuncuların adları düzenlensin
         ScoreController.Instance.SetScorsLocal();    // biri odaya girdiğinde herkesin skor tablosu konusun
-        GetComponent<PhotonView>().RPC("AddScoreItem", RpcTarget.All,null);     // kişi adedince scoreListItem EKLENSİN
         Invoke("SetColor", 0.1f);
         Invoke("SetTriggerGoal",0.1f);
     }
@@ -32,18 +34,6 @@ public class PlayerSetup : MonoBehaviour
         Stadium.Instance.OpenTriggerGoalLocal();
     }
 
-    [PunRPC]
-    private void AddScoreItem()
-    {
-        foreach (Transform scoreItem in ScoreListContent)    // önce hepsini temizle
-        {
-            Destroy(scoreItem.gameObject);
-        }
-
-        for (int i = 0; i < PhotonNetwork.CountOfPlayersInRooms; i++)
-        {
-            Instantiate(ScoreListItem,ScoreListContent).GetComponent<ScoreListItem>().Setup(PhotonNetwork.NickName, 3, 0, Data.Instance.PlayerOrder );
-        }
-    } 
+ 
 
 }
