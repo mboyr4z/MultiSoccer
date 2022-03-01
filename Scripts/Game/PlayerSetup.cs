@@ -15,13 +15,20 @@ public class PlayerSetup : MonoBehaviour
         GetComponent<Shot>().enabled = true;        // şut aktif
         GetComponent<GoalSpawner>().SpawnGoal();    // kale aktif
 
-        //MenuManager.Instance.menus[0].GetComponent<ScoreBoard>().SetActiveScoreBoardItemsLocal(PhotonNetwork.CountOfPlayersInRooms + 1); // scoreboıarda erişir
+        
         ScoreBoard.Instance.SetActiveScoreBoardItemsLocal(PhotonNetwork.CountOfPlayersInRooms + 1);     // biri ordaya girdiğinde scoreBoard elemanlarının aktifliği açılsın
+        GetComponent<PhotonView>().RPC("SetInfosScoreBoardItems", RpcTarget.All,null );         // odaya girdiğinde herkes kendi scoreBoard elemanını günceller
 
         Room.Instance.SetPlayersNameLocal();        // biri odaya girdiğinde tüm oyuncuların adları düzenlensin
         ScoreController.Instance.SetScorsLocal();    // biri odaya girdiğinde herkesin skor tablosu konusun
         Invoke("SetColor", 0.1f);
         Invoke("SetTriggerGoal",0.1f);
+    }
+
+    [PunRPC]
+    private void SetInfosScoreBoardItems()
+    {
+        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.Instance.Gol, Data.Instance.PlayerOrder);      // scoreBoardtaki kendi iteminin bilgileri düzenlensin
     }
 
     private void SetColor()     // herkesin odadaki kişi sayısınca renk koyanilmesi için

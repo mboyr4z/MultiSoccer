@@ -10,8 +10,12 @@ public class ScoreBoard : Singleton<ScoreBoard>
 
     public void SetActiveScoreBoardItemsLocal(int playerCount)
     {
-        print(playerCount);
         GetComponent<PhotonView>().RPC("RPC_SetActiveScoreBoardItems", RpcTarget.All, playerCount);
+    }
+
+    public void SetInfosScoreBoardItemsLocal(string nickName, int level, int gol, int playerOrder)
+    {
+        GetComponent<PhotonView>().RPC("RPC_SetInfosScoreBoardItems", RpcTarget.All, nickName, level, gol, playerOrder);
     }
 
 
@@ -22,5 +26,11 @@ public class ScoreBoard : Singleton<ScoreBoard>
         {
             scoreBoardItems[i].SetActive(true);
         }
+    }
+
+    [PunRPC]
+    private void RPC_SetInfosScoreBoardItems(string nickName,int level, int gol, int playerOrder)        // score boarddaki kişiye ait sıradaki itemin vbilgilerini günceller
+    {
+        scoreBoardItems[playerOrder - 1].GetComponent<ScoreBoardItem>().Setup(nickName, level, gol,  playerOrder);
     }
 }
