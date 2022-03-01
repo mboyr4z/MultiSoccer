@@ -58,10 +58,11 @@ public class Player : Singleton<Player>
 
 
 
-    public void GolLocal()
+    public void GolLocal()          // sadece gol yiyen cihazda ve kişide çalışır
     {
         Data.Instance.Gol++;
-        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.Instance.PlayerOrder,Data.Instance.Gol);
+        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.Instance.PlayerOrder,Data.Instance.Gol);    // oyun içi skoru güncelle
+        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.Instance.Gol, Data.Instance.PlayerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
         AmILose();
 
 
