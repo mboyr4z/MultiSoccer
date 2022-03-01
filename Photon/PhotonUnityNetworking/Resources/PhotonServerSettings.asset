@@ -58,6 +58,7 @@ MonoBehaviour:
   - RPC_SetActiveScoreBoardItems
   - RPC_SetInfosScoreBoardItems
   - SetInfosScoreBoardItems
+  - RPC_SetCloseScoreBoardItemForLeavedPlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

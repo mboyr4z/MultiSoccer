@@ -69,6 +69,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         sayac++;
+        ScoreBoard.Instance.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.Instance.PlayerOrder);
         PhotonNetwork.LeaveRoom();
     }
 

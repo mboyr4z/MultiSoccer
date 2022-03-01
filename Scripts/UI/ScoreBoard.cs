@@ -18,6 +18,18 @@ public class ScoreBoard : Singleton<ScoreBoard>
         GetComponent<PhotonView>().RPC("RPC_SetInfosScoreBoardItems", RpcTarget.All, nickName, level, gol, playerOrder);
     }
 
+    public void SetCloseScoreBoardItemForLeavedPlayerLocal(int playerOrder)
+    {
+        GetComponent<PhotonView>().RPC("RPC_SetCloseScoreBoardItemForLeavedPlayer",RpcTarget.All,playerOrder);
+    }
+  
+
+
+    [PunRPC]
+    private void RPC_SetCloseScoreBoardItemForLeavedPlayer(int playerOrder)
+    {
+        scoreBoardItems[playerOrder - 1].SetActive(false);
+    }
 
     [PunRPC]
     private void RPC_SetActiveScoreBoardItems(int playerCount)
