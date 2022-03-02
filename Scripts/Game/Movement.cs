@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour, IPunObservable
     
     private void FixedUpdate()
     {
-            if (Player.cihaz == Cihaz.android)
+            if (MyPlayer.cihaz == Cihaz.android)
             {
                 yatay = joystick.Horizontal;
                 dikey = joystick.Vertical;

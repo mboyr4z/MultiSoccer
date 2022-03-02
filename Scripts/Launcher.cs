@@ -8,7 +8,7 @@ using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-   /* public static Launcher Instance;
+     public static Launcher Instance;
 
     private void Awake()
     {
@@ -39,9 +39,17 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        MenuManager.Instance.OpenMenu("title");
-        PhotonNetwork.NickName = "player" + Random.Range(0, 1000).ToString("0000");
+        //MenuManager.Instance.OpenMenu("title");
+        //PhotonNetwork.NickName = "player" + Random.Range(0, 1000).ToString("0000");
     }
+
+    public void SetNickName(Text txtNickName)
+    {
+        PhotonNetwork.NickName = txtNickName.text;
+        MenuManager.Instance.OpenMenu("title");
+        print(PhotonNetwork.NickName);
+    }
+
 
     public void CreateRoom()
     {
@@ -170,5 +178,5 @@ public class Launcher : MonoBehaviourPunCallbacks
             startGameButton.GetComponent<Button>().enabled = false;
             startGameButton.GetComponent<Button>().transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Waiting Player";
         }
-    }*/
+    }
 }

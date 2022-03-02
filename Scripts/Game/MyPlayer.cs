@@ -8,7 +8,7 @@ using Photon.Pun;
 
 
 
-public class Player : Singleton<Player>
+public class MyPlayer : Singleton<MyPlayer>
 {
     public static Cihaz cihaz;
 

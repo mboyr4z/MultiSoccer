@@ -27,7 +27,7 @@ public class Shot : MonoBehaviour
         
         shotButton = GameObject.Find("ShotButton").GetComponent<Button>();
 
-        if(Player.cihaz == Cihaz.android)
+        if(MyPlayer.cihaz == Cihaz.android)
         {
             shotButton.onClick.AddListener(Shoot);
         }
@@ -38,7 +38,7 @@ public class Shot : MonoBehaviour
 
     private void Update()
     {
-        if (Player.cihaz != Cihaz.android && Input.GetKey(KeyCode.Space))
+        if (MyPlayer.cihaz != Cihaz.android && Input.GetKey(KeyCode.Space))
         {
             Shoot();
         }

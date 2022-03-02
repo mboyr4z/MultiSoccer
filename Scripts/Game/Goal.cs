@@ -18,7 +18,7 @@ public class Goal : MonoBehaviour
         {
             if (GetComponent<PhotonView>().IsMine)      // sadece gol yiyen kale tek bir cihazda çalışır
             {
-                _localPlayer.GetComponent<Player>().GolLocal();  // sadece gol yiyen kişide çalışır
+                _localPlayer.GetComponent<MyPlayer>().GolLocal();  // sadece gol yiyen kişide çalışır
             }
             
 
@@ -33,7 +33,7 @@ public class Goal : MonoBehaviour
                 if (goal.GetComponent<PhotonView>().IsMine)     // ve sadece kendine ait olan kalelerde çalışır
                 {
                     //TextManager.Instance.Ekle("Sadece Benim Kalem");
-                    goal.GetComponent<Goal>()._localPlayer.GetComponent<Player>().GoFirstSpawnPosition();
+                    goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().GoFirstSpawnPosition();
                     break;
                 }
             }

@@ -45,22 +45,22 @@ public class Room : MonoBehaviourPunCallbacks
             switch ((int)(playerObject.GetComponent<PhotonView>().ViewID / 1000))
             {
                 case 1:
-                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(255,0,0,255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(255,0,0,255);
                     break;
                 case 2:
-                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(0, 255, 0, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(0, 255, 0, 255);
                     break;
 
                 case 3:
-                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(0, 0, 255, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(0, 0, 255, 255);
                     break;
 
                 case 4:
-                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(255, 255, 0, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(255, 255, 0, 255);
                     break;
 
                 default:
-                    playerObject.GetComponent<Player>().arkaPlan.color = new Color(255, 0, 0, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(255, 0, 0, 255);
                     break;
 
             }  
@@ -78,7 +78,7 @@ public class Room : MonoBehaviourPunCallbacks
         
         foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
         {
-            playerObject.GetComponent<Player>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun    
+            playerObject.GetComponent<MyPlayer>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun    
         }
         
     }
