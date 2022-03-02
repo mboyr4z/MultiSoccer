@@ -52,9 +52,15 @@ public class Shot : MonoBehaviour
             pv.RPC("RPC_ChangeColorOnShot", RpcTarget.All, pv.ViewID);
             if (Vector3.Distance(transform.position, Ball.Instance.transform.position ) < 1.4f){ // player and ball distance smaller than 1.1f
                 nextFire = Time.time + fireRate;
-                Ball.Instance.MoveLocal(transform.position, vurusGucu);   // move functions is run
+                pv.RPC("RPC_Shoot", RpcTarget.All, null);
             }
         }
+    }
+
+     [PunRPC]
+    private void RPC_Shoot()
+    {
+        Ball.Instance.MoveGlobal(transform.position, vurusGucu);   // move functions is run
     }
 
     [PunRPC]

@@ -24,12 +24,6 @@ public class Ball : Singleton<Ball>
         cc = GetComponent<CircleCollider2D>();
     }
 
-    public void MoveLocal(Vector2 vuranPos, float guc)
-    {
-        pv.RPC("MoveGlobal", RpcTarget.All, vuranPos, guc);
-    }
-
-    [PunRPC]
     public void MoveGlobal(Vector2 vuranPos, float guc)
     {
         topPos = transform.position;

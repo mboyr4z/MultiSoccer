@@ -5,55 +5,37 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
 
 public class RandomJoin : MonoBehaviourPunCallbacks
 {
 
     public static RandomJoin instance;
 
-    int sayac = 0;
+    public static float time;
+
+    private int sayac = 0;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
-        if (scene.buildIndex == 1 )    // Game ekranındaysak 
+       // PlayerPrefs.SetInt("isComeUI", 0);
+        if (PlayerPrefs.GetInt("isComeUI") == 1) // ve UI ekranından geldiysek
         {
-            if (PlayerPrefs.GetInt("isComeUI") == 1 ) // ve UI ekranından geldiysek
-            {
-                PlayerPrefs.SetInt("isComeUI", 0);
-            }
-            else
-            {
-                print("Direk HGame ile başladık");
-            }
-            
+            PlayerPrefs.SetInt("isComeUI", 0);
+            print("UI dan geldik");
         }
-        
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            print("Direk başladık");
+        }
     }
 
-    public static float time;
-    void Start()
-    {
-        TextManager.Instance.UzerineYaz("OFFLINE");
-        // burada
-        TextManager.Instance.UzerineYaz("CONNECTING SERVER...");
-    }
-
-    public void ConnectServer()
-    {
-        PhotonNetwork.ConnectUsingSettings();
-    }
-    
 
     public override void OnConnectedToMaster()
     {
@@ -68,6 +50,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        print("lobiye katıldı");
         TextManager.Instance.UzerineYaz("CONNECTED LOBBY.");
         PhotonNetwork.NickName = "Player" + Random.Range(0, 1000);
         PhotonNetwork.JoinOrCreateRoom("oda1", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);

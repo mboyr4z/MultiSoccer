@@ -59,12 +59,13 @@ public class Room : MonoBehaviourPunCallbacks
     [PunRPC]
     private void SetPlayersNameGlobal()
     {
-        
+        print("burdayaiz");
         foreach (var playerObject in GameObject.FindGameObjectsWithTag("player"))
         {
+            print("TUR");
             playerObject.GetComponent<MyPlayer>().nickName.text = playerObject.GetComponent<PhotonView>().Owner.NickName;  // her oyuncunun texti nicknamei olsun    
         }
-        
+        print("A");
     }
 
 

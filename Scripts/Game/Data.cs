@@ -46,7 +46,7 @@ public class Data : Singleton<Data>
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 0)      // Yani UI ekranı ise 
+        if (scene.buildIndex == 1)      // Yani UI ekranı ise 
         {
             PlayerPrefs.SetInt("isComeUI", 1);
         }

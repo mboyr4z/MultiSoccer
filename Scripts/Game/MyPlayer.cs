@@ -87,7 +87,7 @@ public class MyPlayer : Singleton<MyPlayer>
     {
         if(Data.Instance.Gol == 3)
         {
-            PhotonNetwork.LeaveRoom();
+            RandomJoin.instance.LeaveRoom();
         }
     }
 

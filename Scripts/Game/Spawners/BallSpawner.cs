@@ -24,9 +24,6 @@ public class BallSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate(ball.name, new Vector3(0, 0, 0), Quaternion.identity);
-        }
+         GameObject.Instantiate(ball, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }
