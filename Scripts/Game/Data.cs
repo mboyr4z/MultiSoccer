@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 
 public class Data : Singleton<Data>
 {
@@ -12,7 +14,7 @@ public class Data : Singleton<Data>
 
     private int playerOrder;
 
-    
+   
     public int Gol { 
         get
         {
@@ -35,6 +37,22 @@ public class Data : Singleton<Data>
             PlayerPrefs.SetInt("playerOrder" + time.ToString(), value);
         }
     }
+
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)      // Yani UI ekranı ise 
+        {
+            PlayerPrefs.SetInt("isComeUI", 1);
+        }
+    }
+
+
 
     void Start()
     {

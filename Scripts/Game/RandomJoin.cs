@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using DG.Tweening;
-
+using UnityEngine.SceneManagement;
 
 public class RandomJoin : MonoBehaviourPunCallbacks
 {
@@ -19,15 +19,40 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         instance = this;
     }
 
+    public void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1 )    // Game ekranındaysak 
+        {
+            if (PlayerPrefs.GetInt("isComeUI") == 1 ) // ve UI ekranından geldiysek
+            {
+                PlayerPrefs.SetInt("isComeUI", 0);
+            }
+            else
+            {
+                print("Direk HGame ile başladık");
+            }
+            
+        }
+        
+    }
+
     public static float time;
     void Start()
     {
-        print("giriş");
         TextManager.Instance.UzerineYaz("OFFLINE");
-        PhotonNetwork.ConnectUsingSettings();
+        // burada
         TextManager.Instance.UzerineYaz("CONNECTING SERVER...");
     }
 
+    public void ConnectServer()
+    {
+        PhotonNetwork.ConnectUsingSettings();
+    }
     
 
     public override void OnConnectedToMaster()
