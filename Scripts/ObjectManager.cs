@@ -18,4 +18,6 @@ public class ObjectManager : Singleton<ObjectManager>
 
     public GameObject pre_RoomListItemPrefab;
     public GameObject pre_PlayerListItemPrefab;
+
+    
 }
