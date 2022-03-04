@@ -27,6 +27,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         if (PlayerPrefs.GetInt("isComeUI") == 1) // ve UI ekranından geldiysek
         {
             PlayerPrefs.SetInt("isComeUI", 0);
+            OnJoinedRoom();
             print("UI dan geldik");
         }
         else

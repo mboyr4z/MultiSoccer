@@ -31,9 +31,6 @@ public class Ball : Singleton<Ball>
         rb.velocity = yon * guc;
     }
 
-    
-
-
     public void GoFirstPos()
     {
         transform.DOLocalMove(new Vector3(0, 0, 0), 1).SetEase(Ease.Flash);
