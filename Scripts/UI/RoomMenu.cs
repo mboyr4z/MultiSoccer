@@ -19,7 +19,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         print("Oyun başlatılıyor");
-        PhotonNetwork.LoadLevel(0);
+        PhotonNetwork.LoadLevel(1);
     }
 
     public void LeaveRoom()

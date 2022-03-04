@@ -33,9 +33,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        MenuManager.Instance.OpenMenu("startPanel");
+        Invoke("OpenStartPanel", 1f);
     }
 
+    private void OpenStartPanel()
+    {
+        MenuManager.Instance.OpenMenu("startPanel");
+    }
 
  
    public override void OnCreateRoomFailed(short returnCode, string message)
