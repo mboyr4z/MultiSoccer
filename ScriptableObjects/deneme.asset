@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0808cc8f649a5c4b9bb6518a65b581c, type: 3}
   m_Name: deneme
   m_EditorClassIdentifier: 
-  loopType: 0
-  Firstease: 0
-  SecondEase: 0
-  spinAngle: {x: 0, y: 0, z: 0}
-  spinTime: 0
-  loopRepeat: 0
-  IsSecondEase: 0
+  loopType: 2
+  Firstease: 1
+  SecondEase: 1
+  spinAngle: {x: 0, y: 0, z: -180}
+  spinTime: 1
+  loopRepeat: -1
+  IsSecondEase: 1
