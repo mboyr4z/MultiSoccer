@@ -21,19 +21,22 @@ public class Launcher : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.SendRate = 120;
+        PhotonNetwork.SerializationRate = 60;
     }
 
     
 
    public override void OnConnectedToMaster()
    {
+        print("Bağlandik");
        PhotonNetwork.JoinLobby();
        PhotonNetwork.AutomaticallySyncScene = true;
    }
 
     public override void OnJoinedLobby()
     {
-        Invoke("OpenStartPanel", 1f);
+        Invoke("OpenStartPanel", 0.01f);
     }
 
     private void OpenStartPanel()

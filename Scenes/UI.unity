@@ -205,7 +205,6 @@ GameObject:
   m_Component:
   - component: {fileID: 96396873}
   - component: {fileID: 96396872}
-  - component: {fileID: 96396874}
   m_Layer: 5
   m_Name: FindRoomMenu
   m_TagString: Untagged
@@ -249,18 +248,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &96396874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96396871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc638d95e39e884cb0e78fa6d6a2ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &108373398
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,6 +5528,7 @@ GameObject:
   - component: {fileID: 1954045626}
   - component: {fileID: 1954045625}
   - component: {fileID: 1954045629}
+  - component: {fileID: 1954045630}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5654,6 +5642,18 @@ MonoBehaviour:
   - {fileID: 661535957}
   - {fileID: 96396872}
   - {fileID: 115872151}
+--- !u!114 &1954045630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954045624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc638d95e39e884cb0e78fa6d6a2ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017865135
 GameObject:
   m_ObjectHideFlags: 0

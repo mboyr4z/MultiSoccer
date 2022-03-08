@@ -23,7 +23,9 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-       // PlayerPrefs.SetInt("isComeUI", 0);
+        // PlayerPrefs.SetInt("isComeUI", 0);
+        PhotonNetwork.SendRate = 120;
+        PhotonNetwork.SerializationRate = 60;
         if (PlayerPrefs.GetInt("isComeUI") == 1) // ve UI ekranından geldiysek
         {
             PlayerPrefs.SetInt("isComeUI", 0);

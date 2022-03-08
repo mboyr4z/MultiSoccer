@@ -11,8 +11,10 @@ public class FindRoom : MonoBehaviourPunCallbacks
     {
         om = ObjectManager.Instance;
     }
+
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        print("Oda listesi güncellendi");
         foreach (Transform room in om.RoomListContent)
         {
             Destroy(room.gameObject);
