@@ -14,7 +14,6 @@ public class FindRoom : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        print("Oda listesi güncellendi");
         foreach (Transform room in om.RoomListContent)
         {
             Destroy(room.gameObject);
@@ -28,5 +27,10 @@ public class FindRoom : MonoBehaviourPunCallbacks
             Instantiate(om.pre_RoomListItemPrefab, om.RoomListContent).GetComponent<RoomListItem>().setup(roomList[i]);
         }
 
+    }
+
+    public override void OnJoinedRoom()
+    {
+        MenuManager.Instance.OpenMenu("room");
     }
 }

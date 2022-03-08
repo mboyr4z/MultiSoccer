@@ -23,17 +23,22 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        print("Random Join Start");
         // PlayerPrefs.SetInt("isComeUI", 0);
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
         if (PlayerPrefs.GetInt("isComeUI") == 1) // ve UI ekranından geldiysek
         {
             PlayerPrefs.SetInt("isComeUI", 0);
+            print("GOL : " + Data.Instance.Gol);
+            print("PlayerOrder : " + Data.Instance.PlayerOrder);
             OnJoinedRoom();
             print("UI dan geldik");
         }
         else
         {
+            Data.Instance.Gol = 0;      //odaya katıldığında gol ve oyuncu sırası ayarlanır
+
             PhotonNetwork.ConnectUsingSettings();
             print("Direk başladık");
         }
@@ -63,13 +68,12 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-
-        PhotonNetwork.SendRate = 20;
-        PhotonNetwork.SerializationRate = 10;
+        Data.Instance.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
+        PhotonNetwork.SendRate = 120;
+        PhotonNetwork.SerializationRate = 60;
         TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
 
-        Data.Instance.Gol = 0;      //odaya katıldığında gol ve oyuncu sırası ayarlanır
-        Data.Instance.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
+        print("Üretiliyor");
       
         GetComponent<PlayerSpawner>().SpawnPlayer();        // oyuncu üret
         GetComponent<BallSpawner>().SpawnBall();            // top üret

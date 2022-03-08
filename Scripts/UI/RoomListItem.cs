@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Realtime;
+using Photon.Pun;
+using Photon.Realtime;
 
 
-public class RoomListItem : MonoBehaviour
+public class RoomListItem : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_Text roomName;
     [SerializeField] TMP_Text cur_max;
