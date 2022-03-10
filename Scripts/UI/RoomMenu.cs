@@ -52,6 +52,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
+        Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
         MenuManager.Instance.OpenMenu("room");
         om.Text_RoomName.text = PhotonNetwork.CurrentRoom.Name;
 

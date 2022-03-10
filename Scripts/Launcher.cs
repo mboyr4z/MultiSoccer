@@ -20,6 +20,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        Data.isComeUI = true;
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;

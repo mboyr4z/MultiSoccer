@@ -11,4 +11,6 @@ public static class Data
     public static int gol;
 
     public static int playerOrder;
+
+    public static bool isComeUI = false;
 }

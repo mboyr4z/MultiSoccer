@@ -60,9 +60,9 @@ public class MyPlayer : Singleton<MyPlayer>
 
     public void GolLocal()          // sadece gol yiyen cihazda ve kişide çalışır
     {
-        Data.Instance.Gol++;
-        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.Instance.PlayerOrder,Data.Instance.Gol);    // oyun içi skoru güncelle
-        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.Instance.Gol, Data.Instance.PlayerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
+        Data.gol++;
+        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.playerOrder,Data.gol);    // oyun içi skoru güncelle
+        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.gol, Data.playerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
         AmILose();
 
 
@@ -85,7 +85,7 @@ public class MyPlayer : Singleton<MyPlayer>
     
     private void AmILose()
     {
-        if(Data.Instance.Gol == 3)
+        if(Data.gol == 3)
         {
             RandomJoin.instance.LeaveRoom();
         }

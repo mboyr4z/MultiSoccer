@@ -20,26 +20,20 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         instance = this;
     }
 
-
     private void Start()
     {
-        TextManager.Instance.Ekle("RJ basladi");
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
 
-        if (PlayerPrefs.GetInt("isComeUI") == 1) // ve UI ekranından geldiysek
+        if (Data.isComeUI == true) // ve UI ekranından geldiysek
         {
-            PlayerPrefs.SetInt("isComeUI", 0);
-
-            TextManager.Instance.Ekle("PLAYERORDER : " + Data.Instance.PlayerOrder);
             OnJoinedRoom();
+            Data.isComeUI = false;
         }
         else
         {
-            Data.Instance.Gol = 0;      //odaya katıldığında gol ve oyuncu sırası ayarlanır
-
+            Data.gol = 0;      //odaya katıldığında gol ve oyuncu sırası ayarlanır
             PhotonNetwork.ConnectUsingSettings();
-            TextManager.Instance.Ekle("DİREK BAŞLADIK ");
         }
     }
 
@@ -67,7 +61,11 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Data.Instance.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
+        if (!Data.isComeUI)     // eğer UI dan gelmediysek
+        {
+            Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
+        }
+
         
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
@@ -84,7 +82,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         sayac++;
-        ScoreBoard.Instance.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.Instance.PlayerOrder);
+        ScoreBoard.Instance.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);
         PhotonNetwork.LeaveRoom();
     }
 
