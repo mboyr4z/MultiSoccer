@@ -38,7 +38,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
         Instantiate(om.pre_PlayerListItemPrefab, om.PlayerListContent).GetComponent<PlayerListItem>().setup(newPlayer);
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
-            om.Button_StartGame.transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Start Game";
+            om.Button_StartGame.transform.Find("Text").GetComponent<Text>().text = "Start Game";
             om.Button_StartGame.GetComponent<Button>().enabled = true;
         }
     }
@@ -47,7 +47,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             om.Button_StartGame.GetComponent<Button>().enabled = false;
-            om.Button_StartGame.GetComponent<Button>().transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Waiting Player";
+            om.Button_StartGame.GetComponent<Button>().transform.Find("Text").GetComponent<Text>().text = "Waiting Player";
         }
     }
     public override void OnJoinedRoom()
