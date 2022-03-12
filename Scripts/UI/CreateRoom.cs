@@ -15,17 +15,13 @@ public class CreateRoom : MonoBehaviour
     {
         if (string.IsNullOrEmpty(om.Input_RoomName.text))
         {
-            print("Kırdık");
             return;
         }
-        print("devam");
 
         if (int.Parse(om.Input_MaxPlayer.text) < 5 && int.Parse(om.Input_MaxPlayer.text) > 0)
         {
-            print(om.Input_MaxPlayer.text + " kişi var ..");
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.MaxPlayers = (byte)int.Parse(om.Input_MaxPlayer.text);
-            print("Oda adı : " + om.Input_RoomName.text);
             PhotonNetwork.CreateRoom(om.Input_RoomName.text, roomOptions);
 
             MenuManager.Instance.OpenMenu("room");

@@ -26,13 +26,17 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.SerializationRate = 60;
     }
 
-    
 
-   public override void OnConnectedToMaster()
-   {
-       PhotonNetwork.JoinLobby();
-       PhotonNetwork.AutomaticallySyncScene = true;
-   }
+
+
+
+
+
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
 
     public override void OnJoinedLobby()
     {
@@ -44,20 +48,31 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("startPanel");
     }
 
- 
-   public override void OnCreateRoomFailed(short returnCode, string message)
-   {
-       ObjectManager.Instance.Text_Error.text = "Room Creation Failed : " + message;
-       MenuManager.Instance.OpenMenu("error");
-   }
+    public void JoinRoom(RoomInfo info)
+    {
+        PhotonNetwork.JoinRoom(info.Name);
+    }
 
-   public void JoinRoom(RoomInfo info)
-   {
-       PhotonNetwork.JoinRoom(info.Name);
-   }
+    
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        print("oda oluşturulamadı" + returnCode.ToString());
+        om.ErrorCanvas.SetActive(true);
+        om.Text_Error.text = "Create Room Failed : " + message;
+    }
 
 
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        om.ErrorCanvas.SetActive(true);
+        om.Text_Error.text = "Join Room Failed : " + message;
+    }
 
- 
-
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        om.ErrorCanvas.SetActive(true);
+        om.Text_Error.text = "Join Room Failed : " + message;
+    }
 }
+
+

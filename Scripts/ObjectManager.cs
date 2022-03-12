@@ -6,6 +6,9 @@ using TMPro;
 
 public class ObjectManager : Singleton<ObjectManager>
 {
+
+    public GameObject ErrorCanvas;
+
     public TMP_InputField Input_RoomName;
     public TMP_InputField Input_MaxPlayer;
 

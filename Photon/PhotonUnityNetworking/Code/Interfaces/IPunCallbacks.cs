@@ -78,7 +78,10 @@ namespace Photon.Pun
         void OnOwnershipTransfered(PhotonView targetView, Player previousOwner);
         
         /// <summary>
-        /// Called when an Ownership Request fails for objects with "takeover" setting.
+        /// Called when an Ownership Request 
+        /// 
+        /// 
+        /// s for objects with "takeover" setting.
         /// </summary>
         /// <remarks>
         /// Each request asks to take ownership from a specific controlling player. This can fail if anyone
