@@ -51,7 +51,6 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        print("lobiye katıldı");
         TextManager.Instance.UzerineYaz("CONNECTED LOBBY.");
         PhotonNetwork.NickName = "Player" + Random.Range(0, 1000);
         PhotonNetwork.JoinOrCreateRoom("oda1", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);

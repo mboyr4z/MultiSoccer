@@ -9,13 +9,11 @@ public class Buttonn : MonoBehaviour
 
     private void OnEnable()
     {
-        print(this.name + " butonu aktif oldu");
         GetComponent<Button>().onClick.AddListener(OpenMenu);
     }
 
     private void OpenMenu()
     {
-        print(this.name + " butonuna tıklandı");
         MenuManager.Instance.OpenMenu(menuName);
     }
 }

@@ -18,7 +18,6 @@ public class RoomMenu : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        print("Oyun başlatılıyor");
         PhotonNetwork.LoadLevel(1);
     }
 
@@ -52,9 +51,8 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-        Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
-        MenuManager.Instance.OpenMenu("room");
-        om.Text_RoomName.text = PhotonNetwork.CurrentRoom.Name;
+        Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;       // playerOrder belli oldu
+
 
         Player[] players = PhotonNetwork.PlayerList;
 

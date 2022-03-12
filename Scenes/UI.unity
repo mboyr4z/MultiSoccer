@@ -601,7 +601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &156202008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   Input_RoomName: {fileID: 771888766}
   Input_MaxPlayer: {fileID: 656713441}
   Text_Error: {fileID: 1169085725}
-  Text_RoomName: {fileID: 1429856667}
+  Text_RoomName: {fileID: 892814748}
   RoomListContent: {fileID: 2025633154}
   PlayerListContent: {fileID: 1644013559}
   Button_StartGame: {fileID: 917030370}
@@ -2477,13 +2477,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 170
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Room Name
+  m_Text: Waiting
 --- !u!222 &892814749
 CanvasRenderer:
   m_ObjectHideFlags: 0

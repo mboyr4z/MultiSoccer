@@ -31,6 +31,7 @@ public class FindRoom : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        om.Text_RoomName.text = PhotonNetwork.CurrentRoom.Name;
         MenuManager.Instance.OpenMenu("room");
     }
 }

@@ -30,7 +30,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
    public override void OnConnectedToMaster()
    {
-        print("Bağlandik");
        PhotonNetwork.JoinLobby();
        PhotonNetwork.AutomaticallySyncScene = true;
    }
