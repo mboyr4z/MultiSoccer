@@ -1248,7 +1248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &709457554
 Transform:
   m_ObjectHideFlags: 0
@@ -2774,27 +2774,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3691619233496721045, guid: 14cc7042d59153e4b81af47d6981448c,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 13.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691619233496721045, guid: 14cc7042d59153e4b81af47d6981448c,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 6.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691619233496721045, guid: 14cc7042d59153e4b81af47d6981448c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9898bbf90057b6b4cbeb3523f6ebfa9b,
-        type: 3}
-    - target: {fileID: 3691619233496721045, guid: 14cc7042d59153e4b81af47d6981448c,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3691619233496721046, guid: 14cc7042d59153e4b81af47d6981448c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2965,8 +2944,7 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.10444854
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3691619233496721045, guid: 14cc7042d59153e4b81af47d6981448c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cc7042d59153e4b81af47d6981448c, type: 3}
 --- !u!114 &5421918945161434277
 MonoBehaviour:
