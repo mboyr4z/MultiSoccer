@@ -34,6 +34,7 @@ public class Goal : MonoBehaviour
                 {
                     //TextManager.Instance.Ekle("Sadece Benim Kalem");
                     goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().GoFirstSpawnPosition();
+                    goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().DisableMovement(1.5f);
                     break;
                 }
             }

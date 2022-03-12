@@ -56,7 +56,16 @@ public class MyPlayer : Singleton<MyPlayer>
 
     }
 
+    public void DisableMovement(float time)     // bu kadar süre movement engellensin
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("EnableMovement", time);
+    }
 
+    private void EnableMovement()
+    {
+        GetComponent<Movement>().enabled = true;
+    }
 
     public void GolLocal()          // sadece gol yiyen cihazda ve kişide çalışır
     {
