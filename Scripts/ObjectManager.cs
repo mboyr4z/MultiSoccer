@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ObjectManager : Singleton<ObjectManager>
@@ -9,7 +10,7 @@ public class ObjectManager : Singleton<ObjectManager>
     public TMP_InputField Input_MaxPlayer;
 
     public TMP_Text Text_Error;
-    public TMP_Text Text_RoomName;
+    public Text Text_RoomName;
 
     public Transform RoomListContent;
     public Transform PlayerListContent;

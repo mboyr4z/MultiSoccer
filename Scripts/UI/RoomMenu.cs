@@ -76,12 +76,12 @@ public class RoomMenu : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
             {
                 om.Button_StartGame.GetComponent<Button>().enabled = true;
-                om.Button_StartGame.GetComponent<Button>().transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Start Game";
+                om.Button_StartGame.GetComponent<Button>().transform.Find("Text").GetComponent<Text>().text = "Start Game";
             }
             else
             {
                 om.Button_StartGame.GetComponent<Button>().enabled = false;
-                om.Button_StartGame.GetComponent<Button>().transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Waiting Player";
+                om.Button_StartGame.GetComponent<Button>().transform.Find("Text").GetComponent<Text>().text = "Waiting Player";
             }
 
         }
@@ -91,6 +91,6 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     {
         om.Button_StartGame.SetActive(PhotonNetwork.IsMasterClient);
         om.Button_StartGame.GetComponent<Button>().enabled = false;
-        om.Button_StartGame.GetComponent<Button>().transform.Find("TMP").GetComponent<TextMeshProUGUI>().text = "Waiting Player";
+        om.Button_StartGame.GetComponent<Button>().transform.Find("Text").GetComponent<Text>().text = "Waiting Player";
     }
 }
