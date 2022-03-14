@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
-using DG.Tweening;
+
 
 public class RandomJoin : MonoBehaviourPunCallbacks
 {
@@ -81,13 +81,18 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         sayac++;
-        ScoreBoard.Instance.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);
-        PhotonNetwork.LeaveRoom();
+        ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);      // odadan ayrılırken scoreboarddan ismini sil
+        PhotonNetwork.LeaveRoom();      // ayrıl
+
     }
+
+    
 
     public override void OnLeftRoom()
     {
         PhotonNetwork.LeaveLobby();
+        SceneManager.LoadScene(0);
+        
     }
 
     public override void OnLeftLobby()
