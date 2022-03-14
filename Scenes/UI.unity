@@ -1234,7 +1234,7 @@ MonoBehaviour:
   RoomListContent: {fileID: 2025633154}
   PlayerListContent: {fileID: 1644013559}
   Button_StartGame: {fileID: 917030370}
-  pre_RoomListItemPrefab: {fileID: 5522614138255535046, guid: e61a4b841046b2a49b338a2e70d44531,
+  pre_RoomListItemPrefab: {fileID: 140073931541009587, guid: e61a4b841046b2a49b338a2e70d44531,
     type: 3}
   pre_PlayerListItemPrefab: {fileID: 9150468054622765667, guid: 304a64e0a2005014eb2d95da81df0b33,
     type: 3}
@@ -6076,7 +6076,7 @@ MonoBehaviour:
     m_Top: 10
     m_Bottom: 10
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
