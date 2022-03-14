@@ -529,8 +529,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arkaPlan: {fileID: 4523979399072964038}
-  Goal: {fileID: 0}
   nickName: {fileID: 8834578924728768573}
+  MovementDisableDuration: 2.5
+  Goal: {fileID: 0}
 --- !u!1 &8834578924728768575
 GameObject:
   m_ObjectHideFlags: 0

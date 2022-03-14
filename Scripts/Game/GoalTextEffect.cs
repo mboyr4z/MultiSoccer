@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class GoalTextEffect : Singleton<GoalTextEffect>
 {
-    [SerializeField] private GameObject goalText;
+    public GameObject goalText;
 
     [SerializeField] private AbstractGoalTextEffectStyle abstractGoalTextEffectStyle;
 
@@ -20,7 +20,7 @@ public class GoalTextEffect : Singleton<GoalTextEffect>
     private void StopGoalTextEffect()
     {
         abstractGoalTextEffectStyle.Stop();
-        transform.localScale = Vector3.zero;
+        goalText.transform.localScale = Vector3.zero;
     }
 
     

@@ -33,10 +33,10 @@ public class Goal : MonoBehaviour
                 if (goal.GetComponent<PhotonView>().IsMine)     // ve sadece kendine ait olan kalelerde çalışır
                 {
                     //TextManager.Instance.Ekle("Sadece Benim Kalem");
-                    goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().GoFirstSpawnPosition();
-                    goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().DisableMovement(1.5f);
-                    GoalParticleSystem.Instance.StartParticalSystem();
-                    GoalTextEffect.Instance.StartGoalTextEffect();
+                    goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().GoFirstSpawnPosition();     // sadece bana ait oyuncu yerine geçsin
+                    goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().DisableMovement();          // oyuncumun hareketi kısıtlansın
+                    GoalParticleSystem.Instance?.StartParticalSystem();                                         // komfeti patlasın
+                    GoalTextEffect.Instance?.StartGoalTextEffect();         // yazı efecti gelsin
                     break;
                 }
             }

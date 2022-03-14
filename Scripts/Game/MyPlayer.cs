@@ -14,13 +14,17 @@ public class MyPlayer : Singleton<MyPlayer>
 
     public SpriteRenderer arkaPlan;
 
-    public GameObject Goal;
-
     public Text nickName;
+
+    public float MovementDisableDuration;
+
+    public GameObject Goal;
 
     private PhotonView pv;
 
     private Rigidbody2D rb;
+
+
 
 
 
@@ -56,10 +60,10 @@ public class MyPlayer : Singleton<MyPlayer>
 
     }
 
-    public void DisableMovement(float time)     // bu kadar süre movement engellensin
+    public void DisableMovement()     // bu kadar süre movement engellensin
     {
         GetComponent<Movement>().enabled = false;
-        Invoke("EnableMovement", time);
+        Invoke("EnableMovement", MovementDisableDuration);
     }
 
     private void EnableMovement()
