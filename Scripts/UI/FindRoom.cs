@@ -7,6 +7,8 @@ using Photon.Realtime;
 public class FindRoom : MonoBehaviourPunCallbacks
 {
     private ObjectManager om;
+
+
     private void Start()
     {
         om = ObjectManager.Instance;
@@ -14,19 +16,37 @@ public class FindRoom : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach (Transform room in om.RoomListContent)
+        //DeleteAllRoomItems();
+
+        foreach (var roomAttr in roomList)
+        {
+            
+            if (!roomAttr.RemovedFromList)
+            {
+                Instantiate(om.pre_RoomListItemPrefab, om.RoomListContent).GetComponent<RoomListItem>().setup(roomAttr);     // odalar sabitse
+                
+            }
+            else
+            {
+                foreach (Transform roomItem in om.RoomListContent)
+                {
+                    if(roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)
+                    {
+                        Destroy(roomItem.gameObject);
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    private void DeleteAllRoomItems()
+    {
+        foreach (Transform room in om.RoomListContent)      // tüm elemanları kaldır
         {
             Destroy(room.gameObject);
         }
-
-
-        for (int i = 0; i < roomList.Count; i++)
-        {
-            if (roomList[i].RemovedFromList)
-                continue;
-            Instantiate(om.pre_RoomListItemPrefab, om.RoomListContent).GetComponent<RoomListItem>().setup(roomList[i]);
-        }
-
     }
 
     public override void OnJoinedRoom()
