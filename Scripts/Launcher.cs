@@ -27,11 +27,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
 
-
-
-
-
-
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
@@ -53,13 +48,25 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(info.Name);
     }
 
-    
+    public override void OnCreatedRoom()
+    {
+        MenuManager.Instance.OpenMenu("room");
+    }
+
+
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        print("oda oluşturulamadı" + returnCode.ToString());
-        om.ErrorCanvas.SetActive(true);
-        om.Text_Error.text = "Create Room Failed : " + message;
+        switch (returnCode)
+        {
+            case 32766:
+                om.Text_CreateRoomErrorText.text = "UYARI : ODA ADI, HALİHAZIRDA ZATEN VAR";
+                break;
+            default:
+                break;
+        }
+
     }
+
 
 
     public override void OnJoinRoomFailed(short returnCode, string message)
@@ -68,11 +75,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         om.Text_Error.text = "Join Room Failed : " + message;
     }
 
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        om.ErrorCanvas.SetActive(true);
-        om.Text_Error.text = "Join Room Failed : " + message;
-    }
+   
 }
 
 

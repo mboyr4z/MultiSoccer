@@ -9,11 +9,14 @@ public class ObjectManager : Singleton<ObjectManager>
 
     public GameObject ErrorCanvas;
 
+
     public TMP_InputField Input_RoomName;
     public TMP_InputField Input_MaxPlayer;
 
     public TMP_Text Text_Error;
+
     public Text Text_RoomName;
+    public Text Text_CreateRoomErrorText;
 
     public Transform RoomListContent;
     public Transform PlayerListContent;
