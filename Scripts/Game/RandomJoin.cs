@@ -65,7 +65,9 @@ public class RandomJoin : MonoBehaviourPunCallbacks
             Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
         }
 
-        
+
+        Data.SetDataColor();        // OYUNA GİRİLDİĞİNDE RENK BELLİ OLSUN
+
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
         //TextManager.Instance.UzerineYaz("CONNECTED ROOM...");
@@ -99,5 +101,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.OfflineMode = true;       // tekrar mastera bağlanmasın odadan ayrılınca
     }
+
+ 
 
 }

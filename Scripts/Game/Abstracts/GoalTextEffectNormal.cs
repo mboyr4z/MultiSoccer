@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
-[CreateAssetMenu(menuName = "GoalEffect/Normal")]
+[CreateAssetMenu(menuName = "GoalTextEffect/Normal")]
 public class GoalTextEffectNormal : AbstractGoalTextEffectStyle
 {
 
@@ -33,16 +33,11 @@ public class GoalTextEffectNormal : AbstractGoalTextEffectStyle
     [SerializeField] private int scaleRepeat;
 
     
-
-
-
-
     public override void GoalTextEffect(GameObject obj)
     {
         obj.transform.DORotate(rotateAngle, rotateDuration ).SetEase(rotateEase).SetLoops(rotateRepeat, rotateLoopType).SetId(555);
         obj.transform.DOScale(newScale,scaleDuration).SetEase(scaleEase).SetLoops(scaleRepeat, scaleLoopType).SetId(556);
     }
-
     public override void Stop()
     {
         DOTween.Kill(555);

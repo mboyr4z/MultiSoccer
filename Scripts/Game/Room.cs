@@ -29,22 +29,22 @@ public class Room : MonoBehaviourPunCallbacks
             switch ((int)(playerObject.GetComponent<PhotonView>().ViewID / 1000))
             {
                 case 1:
-                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(255,0,0,255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = Data.gray;
                     break;
                 case 2:
-                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(0, 255, 0, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = Data.pink;
                     break;
 
                 case 3:
-                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(0, 0, 255, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = Data.blue;
                     break;
 
                 case 4:
-                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(255, 255, 0, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = Data.yellow;
                     break;
 
                 default:
-                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = new Color(255, 0, 0, 255);
+                    playerObject.GetComponent<MyPlayer>().arkaPlan.color = Data.gray;
                     break;
 
             }  
