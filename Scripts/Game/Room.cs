@@ -15,11 +15,50 @@ public class Room : MonoBehaviourPunCallbacks
         Instance = this;
     }
 
-    
+    public void SetGoalsColorsLocal()
+    {
+        photonView.RPC("SetGoalsColorsGlobal", RpcTarget.All, null);
+        print("şimdi renk global");
+    }
+
+    [PunRPC]
+    private void SetGoalsColorsGlobal()
+    {
+        print("global başladı");
+        foreach (var goalObject in GameObject.FindGameObjectsWithTag("Goal"))
+        {
+            switch ((int)(goalObject.GetComponent<PhotonView>().ViewID / 1000))
+            {
+                case 1:
+                    goalObject.GetComponent<SpriteRenderer>().color = Data.gray;
+                    break;
+                case 2:
+                    goalObject.GetComponent<SpriteRenderer>().color = Data.pink;
+                    break;
+
+                case 3:
+                    goalObject.GetComponent<SpriteRenderer>().color = Data.blue;
+                    break;
+
+                case 4:
+                    goalObject.GetComponent<SpriteRenderer>().color = Data.yellow;
+                    break;
+
+                default:
+                    goalObject.GetComponent<SpriteRenderer>().color = Data.gray;
+                    break;
+
+            }
+        }
+    }
+
+
     public void SetPlayersColorsLocal()
     {
         photonView.RPC("SetPlayersColorsGlobal", RpcTarget.All, null);
     }
+
+
 
     [PunRPC]
     private void SetPlayersColorsGlobal()

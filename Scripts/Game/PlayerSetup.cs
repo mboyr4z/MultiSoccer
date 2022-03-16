@@ -13,6 +13,7 @@ public class PlayerSetup : MonoBehaviour
     {
         GetComponent<Movement>().enabled = true;    // hareket aktif
         GetComponent<Shot>().enabled = true;        // şut aktif
+
         GetComponent<GoalSpawner>().SpawnGoal();    // kale aktif
 
         
