@@ -19,6 +19,7 @@ public class Goal : MonoBehaviour
             if (GetComponent<PhotonView>().IsMine)      // sadece gol yiyen kale tek bir cihazda çalışır
             {
                 _localPlayer.GetComponent<MyPlayer>().GolLocal();  // sadece gol yiyen kişide çalışır
+                GoalEffects.Instance.StartBadGoalKeeperEffectLocal(PhotonNetwork.NickName);
             }
             
 
@@ -36,7 +37,7 @@ public class Goal : MonoBehaviour
                     goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().GoFirstSpawnPosition();     // sadece bana ait oyuncu yerine geçsin
                     goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().DisableMovement();          // oyuncumun hareketi kısıtlansın
                     GoalParticleSystem.Instance?.StartParticalSystem();                                         // komfeti patlasın
-                    GoalTextEffect.Instance?.StartGoalTextEffect();         // yazı efecti gelsin
+                    GoalEffects.Instance?.StartGoalTextEffect();         // yazı efecti gelsin
                     break;
                 }
             }

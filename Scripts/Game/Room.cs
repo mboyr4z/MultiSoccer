@@ -18,13 +18,11 @@ public class Room : MonoBehaviourPunCallbacks
     public void SetGoalsColorsLocal()
     {
         photonView.RPC("SetGoalsColorsGlobal", RpcTarget.All, null);
-        print("şimdi renk global");
     }
 
     [PunRPC]
     private void SetGoalsColorsGlobal()
     {
-        print("global başladı");
         foreach (var goalObject in GameObject.FindGameObjectsWithTag("Goal"))
         {
             switch ((int)(goalObject.GetComponent<PhotonView>().ViewID / 1000))

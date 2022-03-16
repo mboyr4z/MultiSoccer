@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class AbstractGoalTextEffectStyle : ScriptableObject
 {
-    public abstract void GoalTextEffect(GameObject obj);
+    public abstract void GoalTextEffects(GameObject obj);
 
     public abstract void Stop();
 }

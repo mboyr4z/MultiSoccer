@@ -60,7 +60,7 @@ public class GoalSpawner : MonoBehaviour
         GameObject _localGoal = PhotonNetwork.Instantiate(goal.name, spawnPoint, Quaternion.Euler(0, 0, angle));
         _localGoal.GetComponent<Goal>().enabled = true;
         _localGoal.GetComponent<Goal>().Setup(gameObject);
-        print("şimdi renk local");
+
         Room.Instance.SetGoalsColorsLocal();        // kale oluşturulduktan sonra herkes kalelerine tekrar renk versin
     }
 }
