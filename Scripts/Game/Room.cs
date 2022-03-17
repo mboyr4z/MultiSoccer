@@ -6,18 +6,17 @@ using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class Room : MonoBehaviourPunCallbacks
+public class Room : Singleton<Room>
 {
-    public static Room Instance;
+    private PhotonView pv;
 
-    private void Awake()
+    private void Start()
     {
-        Instance = this;
+        pv = GetComponent<PhotonView>();
     }
-
     public void SetGoalsColorsLocal()
     {
-        photonView.RPC("SetGoalsColorsGlobal", RpcTarget.All, null);
+        pv.RPC("SetGoalsColorsGlobal", RpcTarget.All, null);
     }
 
     [PunRPC]
@@ -53,7 +52,7 @@ public class Room : MonoBehaviourPunCallbacks
 
     public void SetPlayersColorsLocal()
     {
-        photonView.RPC("SetPlayersColorsGlobal", RpcTarget.All, null);
+        pv.RPC("SetPlayersColorsGlobal", RpcTarget.All, null);
     }
 
 
@@ -90,7 +89,7 @@ public class Room : MonoBehaviourPunCallbacks
 
     public void SetPlayersNameLocal( )      //  her oyuncu localinde isimleri düzenlesin
     {
-        photonView.RPC("SetPlayersNameGlobal",RpcTarget.All,null);
+        pv.RPC("SetPlayersNameGlobal",RpcTarget.All,null);
     }
 
     [PunRPC]

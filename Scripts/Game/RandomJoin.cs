@@ -85,7 +85,6 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         sayac++;
         ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);      // odadan ayrılırken scoreboarddan ismini sil
         PhotonNetwork.LeaveRoom();      // ayrıl
-
     }
 
     
