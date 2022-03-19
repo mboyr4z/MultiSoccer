@@ -20,25 +20,37 @@ public class FindRoom : MonoBehaviourPunCallbacks
 
         foreach (var roomAttr in roomList)
         {
-            
-            if (!roomAttr.RemovedFromList)
+            if(roomAttr.IsVisible)      // oda görünürlüğü açık ise
             {
-                foreach (Transform roomItem in om.RoomListContent)
+                if (!roomAttr.RemovedFromList)
                 {
-                    if (roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)     // bir odanın oyuncu sayısı arttıysa
+                    foreach (Transform roomItem in om.RoomListContent)
                     {
-                        roomItem.gameObject.GetComponent<RoomListItem>().setup(roomAttr);
-                        return;
+                        if (roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)     // bir odanın oyuncu sayısı arttıysa
+                        {
+                            roomItem.gameObject.GetComponent<RoomListItem>().setup(roomAttr);
+                            return;
+                        }
+                    }
+                    Instantiate(om.pre_RoomListItemPrefab, om.RoomListContent).GetComponent<RoomListItem>().setup(roomAttr);     // odalar sabitse
+
+                }
+                else
+                {
+                    foreach (Transform roomItem in om.RoomListContent)
+                    {
+                        if (roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)
+                        {
+                            Destroy(roomItem.gameObject);
+                        }
                     }
                 }
-                Instantiate(om.pre_RoomListItemPrefab, om.RoomListContent).GetComponent<RoomListItem>().setup(roomAttr);     // odalar sabitse
-                
             }
-            else
+            else         // oda görünürlüğü kapandı ise
             {
                 foreach (Transform roomItem in om.RoomListContent)
                 {
-                    if(roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)
+                    if (roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)
                     {
                         Destroy(roomItem.gameObject);
                     }

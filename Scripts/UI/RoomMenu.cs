@@ -37,6 +37,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
         Instantiate(om.pre_PlayerListItemPrefab, om.PlayerListContent).GetComponent<PlayerListItem>().setup(newPlayer);
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
+            PhotonNetwork.CurrentRoom.IsVisible = false;
             om.Button_StartGame.transform.Find("Text").GetComponent<Text>().text = "Start Game";
             om.Button_StartGame.GetComponent<Button>().enabled = true;
         }
@@ -45,6 +46,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            PhotonNetwork.CurrentRoom.IsVisible = true;
             om.Button_StartGame.GetComponent<Button>().enabled = false;
             om.Button_StartGame.GetComponent<Button>().transform.Find("Text").GetComponent<Text>().text = "Waiting Player";
         }
