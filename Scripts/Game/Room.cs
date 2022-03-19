@@ -54,6 +54,18 @@ public class Room : Singleton<Room>
         pv.RPC("SetPlayersColorsGlobal", RpcTarget.All, null);
     }
 
+    public void DestroyAllInstantinatedObjects()
+    {
+        ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);      // odadan ayrılırken scoreboarddan ismini sil
+
+        foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject)))        // odadan ayrılırken sadece kendine ait olan playeri sil
+        {
+            if (obj.name.Contains("Clone") && obj.GetComponent<PhotonView>().IsMine && obj.tag == "player")
+            {
+                obj.GetComponent<InstantinatedPhotonObject>().DestroyInstantinatedObjectLocal();
+            }
+        }
+    }
 
 
     [PunRPC]
@@ -82,13 +94,13 @@ public class Room : Singleton<Room>
                     playerObject.GetComponent<MyPlayer>().arkaPlan.color = Data.gray;
                     break;
 
-            }  
+            }
         }
     }
 
-    public void SetPlayersNameLocal( )      //  her oyuncu localinde isimleri düzenlesin
+    public void SetPlayersNameLocal()      //  her oyuncu localinde isimleri düzenlesin
     {
-        pv.RPC("SetPlayersNameGlobal",RpcTarget.All,null);
+        pv.RPC("SetPlayersNameGlobal", RpcTarget.All, null);
     }
 
     [PunRPC]

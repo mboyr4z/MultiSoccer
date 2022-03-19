@@ -82,16 +82,8 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
+        Room.Instance.DestroyAllInstantinatedObjects();
         IsKnockedOut = true;
-        ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);      // odadan ayrılırken scoreboarddan ismini sil
-
-        foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject)))        // odadan ayrılırken sadece kendine ait olan playeri sil
-        {
-            if (obj.name.Contains("Clone") && obj.GetComponent<PhotonView>().IsMine &&  obj.tag == "player")
-            {
-                obj.GetComponent<InstantinatedPhotonObject>().DestroyInstantinatedObjectLocal();
-            }
-        }
         PhotonNetwork.LeaveRoom();      // ayrıl
     }
 

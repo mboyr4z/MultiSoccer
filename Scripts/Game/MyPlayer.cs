@@ -99,7 +99,8 @@ public class MyPlayer : Singleton<MyPlayer>
         {
             GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın
             pv.RPC("SetScoreGlobal", RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
-            
+            Room.Instance.DestroyAllInstantinatedObjects();
+            MenuManager.Instance.OpenMenu("LostPanel");
         }
     }
 
