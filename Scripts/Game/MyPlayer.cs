@@ -71,7 +71,7 @@ public class MyPlayer : Singleton<MyPlayer>
     public void GolLocal()          // sadece gol yiyen cihazda ve kişide çalışır
     {
         Data.gol++;
-        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.playerOrder,Data.gol);    // oyun içi skoru güncelle
+        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.playerOrder,Data.gol.ToString());    // oyun içi skoru güncelle
         ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.gol, Data.playerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
         AmILose();
 
@@ -79,7 +79,7 @@ public class MyPlayer : Singleton<MyPlayer>
     }
 
     [PunRPC]
-    private void SetScoreGlobal(int playerOrder, int score)
+    private void SetScoreGlobal(int playerOrder, string score)
     {
         ScoreController.Instance.Scores[playerOrder - 1].GetComponent<Score>().SetScoreLocal(score);
     }
@@ -97,7 +97,9 @@ public class MyPlayer : Singleton<MyPlayer>
     {
         if(Data.gol == 3)
         {
-            RandomJoin.instance.LeaveRoom();
+            GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın
+            pv.RPC("SetScoreGlobal", RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
+            
         }
     }
 

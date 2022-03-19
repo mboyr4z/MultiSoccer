@@ -20,6 +20,7 @@ public static class Data
     public static Color pink = new Color(255, 54, 114, 255) / 255;
     public static Color blue = new Color(25, 199, 236, 255) / 255;
     public static Color yellow = new Color(226, 231, 132, 255) / 255;
+    public static Color KnockedOut = new Color(255, 0, 0,255) / 255;
 
 
     public static void SetDataColor()  // oyuna katılındığında kale ve player için renk belli olur

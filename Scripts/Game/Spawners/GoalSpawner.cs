@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class GoalSpawner : MonoBehaviour
 {
+    public static GameObject localGoal;
 
     public static Vector3 spawnPoint;
 
@@ -57,9 +58,10 @@ public class GoalSpawner : MonoBehaviour
 
       
         
-        GameObject _localGoal = PhotonNetwork.Instantiate(goal.name, spawnPoint, Quaternion.Euler(0, 0, angle));
-        _localGoal.GetComponent<Goal>().enabled = true;
-        _localGoal.GetComponent<Goal>().Setup(gameObject);
+        localGoal = PhotonNetwork.Instantiate(goal.name, spawnPoint, Quaternion.Euler(0, 0, angle));
+        localGoal.GetComponent<Goal>().enabled = true;
+        localGoal.GetComponent<Goal>().Setup(gameObject);
+        Debug.LogError(localGoal);
 
         Room.Instance.SetGoalsColorsLocal();        // kale oluşturulduktan sonra herkes kalelerine tekrar renk versin
     }

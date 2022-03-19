@@ -49,7 +49,6 @@ public class Room : Singleton<Room>
         }
     }
 
-
     public void SetPlayersColorsLocal()
     {
         pv.RPC("SetPlayersColorsGlobal", RpcTarget.All, null);
