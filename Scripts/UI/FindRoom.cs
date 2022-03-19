@@ -23,6 +23,14 @@ public class FindRoom : MonoBehaviourPunCallbacks
             
             if (!roomAttr.RemovedFromList)
             {
+                foreach (Transform roomItem in om.RoomListContent)
+                {
+                    if (roomItem.gameObject.GetComponent<RoomListItem>().name == roomAttr.Name)     // bir odanın oyuncu sayısı arttıysa
+                    {
+                        roomItem.gameObject.GetComponent<RoomListItem>().setup(roomAttr);
+                        return;
+                    }
+                }
                 Instantiate(om.pre_RoomListItemPrefab, om.RoomListContent).GetComponent<RoomListItem>().setup(roomAttr);     // odalar sabitse
                 
             }
