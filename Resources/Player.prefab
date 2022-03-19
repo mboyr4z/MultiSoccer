@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 5854646498256824340}
   - component: {fileID: -672495982604911395}
   - component: {fileID: 8999373572354476760}
+  - component: {fileID: 3575178444042220220}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -532,6 +533,18 @@ MonoBehaviour:
   nickName: {fileID: 8834578924728768573}
   MovementDisableDuration: 2.5
   Goal: {fileID: 0}
+--- !u!114 &3575178444042220220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834578924717594957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab077c8e68ad564a92239fda7a0a529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8834578924728768575
 GameObject:
   m_ObjectHideFlags: 0

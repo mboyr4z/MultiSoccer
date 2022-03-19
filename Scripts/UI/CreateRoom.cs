@@ -35,6 +35,7 @@ public class CreateRoom : MonoBehaviour
         if (int.Parse(om.Input_MaxPlayer.text) < 5 && int.Parse(om.Input_MaxPlayer.text) > 0)
         {
             RoomOptions roomOptions = new RoomOptions();
+            roomOptions.CleanupCacheOnLeave = false;        // biri odadan ayrıldıpında ürettiğin nesneler yok olmasın.
             roomOptions.MaxPlayers = (byte)int.Parse(om.Input_MaxPlayer.text);
             PhotonNetwork.CreateRoom(om.Input_RoomName.text, roomOptions);
         }

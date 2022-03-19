@@ -13,7 +13,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public static float time;
 
-    private int sayac = 0;
+    private bool IsKnockedOut = false;
 
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         TextManager.Instance.UzerineYaz("CONNECTED SERVER.");
-        if(sayac == 0)
+        if(!IsKnockedOut)
         {
             PhotonNetwork.JoinLobby();
         }
@@ -53,7 +53,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     {
         TextManager.Instance.UzerineYaz("CONNECTED LOBBY.");
         PhotonNetwork.NickName = "Player" + Random.Range(0, 1000);
-        PhotonNetwork.JoinOrCreateRoom("oda1", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom("oda1", new RoomOptions { MaxPlayers = 4, CleanupCacheOnLeave = false }, TypedLobby.Default);
         TextManager.Instance.UzerineYaz("CONNECTING ROOM...");
 
     }
@@ -82,12 +82,18 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-        sayac++;
+        IsKnockedOut = true;
         ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);      // odadan ayrılırken scoreboarddan ismini sil
+
+        foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject)))        // odadan ayrılırken sadece kendine ait olan playeri sil
+        {
+            if (obj.name.Contains("Clone") && obj.GetComponent<PhotonView>().IsMine &&  obj.tag == "player")
+            {
+                obj.GetComponent<InstantinatedPhotonObject>().DestroyInstantinatedObjectLocal();
+            }
+        }
         PhotonNetwork.LeaveRoom();      // ayrıl
     }
-
-    
 
     public override void OnLeftRoom()
     {
