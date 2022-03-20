@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 140073931541009589}
   - component: {fileID: 140073931541009588}
   - component: {fileID: 140073931541009590}
+  - component: {fileID: 29158247221339693}
   m_Layer: 5
   m_Name: RoomListItem
   m_TagString: Untagged
@@ -381,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393048fc3e5bc4442ad85aa89e9f1b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   roomName: {fileID: 140073931387166796}
   cur_max: {fileID: 140073931300936141}
 --- !u!114 &140073931541009590
@@ -412,3 +414,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &29158247221339693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140073931541009587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e66a04050af94aa173be676365f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Buttonn : MonoBehaviour
+public class ButtonRedirecting : MonoBehaviour
 {
     [SerializeField] private string menuName;
 
     private void OnEnable()
     {
+
         GetComponent<Button>().onClick.AddListener(OpenMenu);
     }
+
 
     private void OpenMenu()
     {
