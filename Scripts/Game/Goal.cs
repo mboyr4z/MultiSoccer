@@ -15,14 +15,12 @@ public class Goal : MonoBehaviour
 
     public void ChangeColorWhenKnockedOutLocal()
     {
-        Debug.LogError("Rengi Ben değiştiriyom");
         GetComponent<PhotonView>().RPC(nameof(ChangeColorWhenKnockedOutGlobal), RpcTarget.All, null);
     }
 
     [PunRPC]
     private void ChangeColorWhenKnockedOutGlobal()
     {
-        Debug.LogError("Biri rengi değiştirdi");
         GetComponent<SpriteRenderer>().color = Data.KnockedOut;
     }
 

@@ -12,6 +12,8 @@ public static class Data
 
     public static int playerOrder;
 
+    public static int leftPlayer;
+
     public static bool isComeUI = false;
 
     public static Color color;

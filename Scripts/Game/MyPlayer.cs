@@ -21,13 +21,7 @@ public class MyPlayer : Singleton<MyPlayer>
 
     private Rigidbody2D rb;
 
-
-
-
-
-
-
-
+    private bool amILose = false;
     private void Awake()
     {
 #if UNITY_STANDALONE_WIN
@@ -60,7 +54,7 @@ public class MyPlayer : Singleton<MyPlayer>
     public void DisableMovement()     // bu kadar süre movement engellensin
     {
         GetComponent<Movement>().enabled = false;
-        Invoke("EnableMovement", MovementDisableDuration);
+        Invoke(nameof(EnableMovement), MovementDisableDuration);
     }
 
     private void EnableMovement()
@@ -71,11 +65,9 @@ public class MyPlayer : Singleton<MyPlayer>
     public void GolLocal()          // sadece gol yiyen cihazda ve kişide çalışır
     {
         Data.gol++;
-        pv.RPC("SetScoreGlobal",RpcTarget.All, Data.playerOrder,Data.gol.ToString());    // oyun içi skoru güncelle
+        pv.RPC(nameof(SetScoreGlobal),RpcTarget.All, Data.playerOrder,Data.gol.ToString());    // oyun içi skoru güncelle
         ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.gol, Data.playerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
         AmILose();
-
-
     }
 
     [PunRPC]
@@ -84,26 +76,36 @@ public class MyPlayer : Singleton<MyPlayer>
         ScoreController.Instance.Scores[playerOrder - 1].GetComponent<Score>().SetScoreLocal(score);
     }
 
-   
-
 
     public void GoFirstSpawnPosition()
     {
         transform.DOLocalMove(PlayerSpawner.spawnPoint, 1).SetEase(Ease.Flash);
-        Invoke("ResetVelocity", 1f);
+        Invoke(nameof(ResetVelocity), 1f);
     }
     
     private void AmILose()
     {
-        if(Data.gol == 3)
+        if(Data.gol == 1)
         {
+            amILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
             GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın
-            pv.RPC("SetScoreGlobal", RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
+            pv.RPC(nameof(SetScoreGlobal), RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
             Room.Instance.DestroyAllInstantinatedObjects();
+            pv.RPC(nameof(APersonLostGlobal), RpcTarget.All, null);
             MenuManager.Instance.OpenMenu("LostPanel");
         }
     }
-
+    [PunRPC]
+    public void APersonLostGlobal()
+    {
+        Data.leftPlayer--;
+        Debug.LogError("Kalan Oyuncu : " + Data.leftPlayer);
+        if(Data.leftPlayer == 1 && !amILose && pv.IsMine)        // O ZAMAN tek ben hayatta kaldım
+        {
+            MenuManager.Instance.OpenMenu("WinPanel");
+            WinPanel.Instance.SetWinnerNameLocal(PhotonNetwork.NickName);
+        }
+    }
 
     void ResetVelocity()
     {

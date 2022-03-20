@@ -65,6 +65,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
             Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
         }
 
+        Data.leftPlayer = (int) PhotonNetwork.CurrentRoom.MaxPlayers;   // odaya girdiğinde kalanOyuncu değeri Max player kadar olacak
 
         Data.SetDataColor();        // OYUNA GİRİLDİĞİNDE RENK BELLİ OLSUN
 
@@ -76,9 +77,8 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
         GetComponent<PlayerSpawner>().SpawnPlayer();        // oyuncu üret
         GetComponent<BallSpawner>().SpawnBall();            // top üret
-
-
     }
+
 
     public void LeaveRoom()
     {
@@ -99,6 +99,10 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         PhotonNetwork.OfflineMode = true;       // tekrar mastera bağlanmasın odadan ayrılınca
     }
 
- 
+    public override void OnPlayerLeftRoom(Player otherPlayer)       // birisi odadan ayrıldığında kazanan belli oluyor mu diye kontrol et
+    {
+        PlayerSpawner.localPlayer.GetComponent<MyPlayer>().APersonLostGlobal();
+    }
+
 
 }
