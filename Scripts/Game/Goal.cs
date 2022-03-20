@@ -26,8 +26,11 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball"))  // HER CİHAZDA golYiyen kalelerde , çalıştırır
+        if (collision.CompareTag("Ball"))  // HER CİHAZDA golYiyen kalede çalıştırır
         {
+            SoundManager.Instance.PlaySound("Whistle");
+            SoundManager.Instance.PlaySound("Goal");
+
             if (GetComponent<PhotonView>().IsMine)      // sadece gol yiyen kale tek bir cihazda çalışır
             {
                 _localPlayer.GetComponent<MyPlayer>().GolLocal();  // sadece gol yiyen kişide çalışır
@@ -45,6 +48,7 @@ public class Goal : MonoBehaviour
                 //TextManager.Instance.Ekle("Tüm Kaleler");
                 if (goal.GetComponent<PhotonView>().IsMine)     // ve sadece kendine ait olan kalelerde çalışır
                 {
+                    
                     //TextManager.Instance.Ekle("Sadece Benim Kalem");
                     goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().GoFirstSpawnPosition();     // sadece bana ait oyuncu yerine geçsin
                     goal.GetComponent<Goal>()._localPlayer.GetComponent<MyPlayer>().DisableMovement();          // oyuncumun hareketi kısıtlansın

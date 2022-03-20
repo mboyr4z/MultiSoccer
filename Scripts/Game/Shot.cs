@@ -60,6 +60,7 @@ public class Shot : MonoBehaviour
      [PunRPC]
     private void RPC_Shoot()
     {
+        SoundManager.Instance.PlaySound("Shot");
         Ball.Instance.MoveGlobal(transform.position, vurusGucu);   // move functions is run
     }
 
