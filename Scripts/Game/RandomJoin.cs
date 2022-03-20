@@ -101,8 +101,6 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)       // birisi odadan ayrıldığında kazanan belli oluyor mu diye kontrol et
     {
-        PlayerSpawner.localPlayer.GetComponent<MyPlayer>().APersonLostGlobal();
+        Room.Instance.IsWinnerBeenGlobal();
     }
-
-
 }

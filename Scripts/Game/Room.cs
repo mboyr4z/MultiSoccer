@@ -13,7 +13,31 @@ public class Room : Singleton<Room>
     private void Start()
     {
         pv = GetComponent<PhotonView>();
+        Data.amILose = false;
     }
+
+    public void IsWinnerBeenLocal()
+    {
+        pv.RPC(nameof(IsWinnerBeenGlobal), RpcTarget.All, null);
+    }
+
+    [PunRPC]
+    public void IsWinnerBeenGlobal()
+    {
+        Data.leftPlayer--;
+        if (Data.leftPlayer == 1 && !Data.amILose)        // O ZAMAN tek ben hayatta kaldım
+        {
+            pv.RPC(nameof(TheWinnerBeen), RpcTarget.All, PhotonNetwork.NickName);
+        }
+    }
+
+    [PunRPC]
+    private void TheWinnerBeen(string nickName)
+    {
+        MenuManager.Instance.OpenMenu("WinPanel");
+        WinPanel.Instance.SetWinnerNameLocal(nickName);
+    }
+
     public void SetGoalsColorsLocal()
     {
         pv.RPC("SetGoalsColorsGlobal", RpcTarget.All, null);

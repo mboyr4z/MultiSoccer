@@ -14,6 +14,8 @@ public static class Data
 
     public static int leftPlayer;
 
+    public static bool amILose = false;
+
     public static bool isComeUI = false;
 
     public static Color color;

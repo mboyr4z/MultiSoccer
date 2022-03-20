@@ -19,4 +19,6 @@ public class WinPanel : Singleton<WinPanel>
         txt_WinnerNickName.text = winnerNickName;
     }
 
+
+
 }

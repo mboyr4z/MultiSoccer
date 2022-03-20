@@ -21,7 +21,7 @@ public class MyPlayer : Singleton<MyPlayer>
 
     private Rigidbody2D rb;
 
-    private bool amILose = false;
+
     private void Awake()
     {
 #if UNITY_STANDALONE_WIN
@@ -87,25 +87,18 @@ public class MyPlayer : Singleton<MyPlayer>
     {
         if(Data.gol == 1)
         {
-            amILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
+            Data.amILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
             GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın
             pv.RPC(nameof(SetScoreGlobal), RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
             Room.Instance.DestroyAllInstantinatedObjects();
-            pv.RPC(nameof(APersonLostGlobal), RpcTarget.All, null);
             MenuManager.Instance.OpenMenu("LostPanel");
+            Room.Instance.IsWinnerBeenLocal();
+            Debug.LogError("Ben Yenildim");
         }
     }
-    [PunRPC]
-    public void APersonLostGlobal()
-    {
-        Data.leftPlayer--;
-        Debug.LogError("Kalan Oyuncu : " + Data.leftPlayer);
-        if(Data.leftPlayer == 1 && !amILose && pv.IsMine)        // O ZAMAN tek ben hayatta kaldım
-        {
-            MenuManager.Instance.OpenMenu("WinPanel");
-            WinPanel.Instance.SetWinnerNameLocal(PhotonNetwork.NickName);
-        }
-    }
+
+
+    
 
     void ResetVelocity()
     {

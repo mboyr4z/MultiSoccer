@@ -331,7 +331,6 @@ GameObject:
   - component: {fileID: 267299404}
   - component: {fileID: 267299403}
   - component: {fileID: 267299402}
-  - component: {fileID: 267299401}
   m_Layer: 5
   m_Name: Btn_LeaveRoom
   m_TagString: Untagged
@@ -359,19 +358,6 @@ RectTransform:
   m_AnchoredPosition: {x: -31, y: 43.99997}
   m_SizeDelta: {x: 450, y: 90}
   m_Pivot: {x: 1, y: 0}
---- !u!114 &267299401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267299399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f0dae08b1c61a469b234e59f7a49c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuName: leaveRoom
 --- !u!114 &267299402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +429,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267299402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 709457558}
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &267299404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5367,7 +5364,6 @@ GameObject:
   - component: {fileID: 1936985487}
   - component: {fileID: 1936985486}
   - component: {fileID: 1936985485}
-  - component: {fileID: 1936985484}
   m_Layer: 5
   m_Name: Btn_LeaveRoom
   m_TagString: Untagged
@@ -5395,19 +5391,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 57}
   m_SizeDelta: {x: 450, y: 90}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1936985484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936985482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f0dae08b1c61a469b234e59f7a49c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuName: leaveRoom
 --- !u!114 &1936985485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5479,7 +5462,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1936985485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 709457558}
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1936985487
 CanvasRenderer:
   m_ObjectHideFlags: 0
