@@ -85,7 +85,7 @@ public class MyPlayer : Singleton<MyPlayer>
     
     private void AmILose()
     {
-        if(Data.gol == 1)
+        if(Data.gol == 3)
         {
             Data.amILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
             GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın

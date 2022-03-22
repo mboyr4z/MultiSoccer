@@ -13,6 +13,7 @@ public class Room : Singleton<Room>
     private void Start()
     {
         pv = GetComponent<PhotonView>();
+        Data.gol = 0;
         Data.amILose = false;
     }
 
