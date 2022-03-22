@@ -27,8 +27,18 @@ public class CreateRoom : MonoBehaviour
 
     public void CreateRoomm()
     {
+
         if (string.IsNullOrEmpty(om.Input_RoomName.text))
         {
+            om.Text_CreateRoomErrorText.text = "Room Name cant be null!";
+            return;
+        }
+
+        string roomName = om.Input_RoomName.text.Trim();
+
+        if(roomName.Length == 0)
+        {
+            om.Text_CreateRoomErrorText.text = "Room Name must not contain only space char!";
             return;
         }
 
@@ -37,7 +47,7 @@ public class CreateRoom : MonoBehaviour
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.CleanupCacheOnLeave = false;        // biri odadan ayrıldıpında ürettiğin nesneler yok olmasın.
             roomOptions.MaxPlayers = (byte)int.Parse(om.Input_MaxPlayer.text);
-            PhotonNetwork.CreateRoom(om.Input_RoomName.text, roomOptions);
+            PhotonNetwork.CreateRoom(roomName, roomOptions);
         }
     }
 
