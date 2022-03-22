@@ -10,8 +10,8 @@ public class ObjectManager : Singleton<ObjectManager>
     public GameObject ErrorCanvas;
 
 
-    public TMP_InputField Input_RoomName;
-    public TMP_InputField Input_MaxPlayer;
+    public InputField Input_RoomName;
+    public InputField Input_MaxPlayer;
 
     public TMP_Text Text_Error;
 
