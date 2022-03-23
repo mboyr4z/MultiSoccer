@@ -64,9 +64,9 @@ public class MyPlayer : Singleton<MyPlayer>
 
     public void GolLocal()          // sadece gol yiyen cihazda ve kişide çalışır
     {
-        Data.gol++;
-        pv.RPC(nameof(SetScoreGlobal),RpcTarget.All, Data.playerOrder,Data.gol.ToString());    // oyun içi skoru güncelle
-        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.gol, Data.playerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
+        Data.Gol++;
+        pv.RPC(nameof(SetScoreGlobal),RpcTarget.All, Data.PlayerOrder,Data.Gol.ToString());    // oyun içi skoru güncelle
+        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.Gol, Data.PlayerOrder);  // biri gol yediğinde tüm ekranlarda kendi score boardını güncelleyecek
         AmILose();
     }
 
@@ -85,11 +85,11 @@ public class MyPlayer : Singleton<MyPlayer>
     
     private void AmILose()
     {
-        if(Data.gol == 1)
+        if(Data.Gol == 1)
         {
-            Data.amILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
+            Data.AmILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
             GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın
-            pv.RPC(nameof(SetScoreGlobal), RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
+            pv.RPC(nameof(SetScoreGlobal), RpcTarget.All, Data.PlayerOrder, "K.O");    // oyun içi skoru güncelle
             Room.Instance.DestroyAllInstantinatedObjects();
             MenuManager.Instance.OpenMenu("LostPanel");
             Debug.LogError("Ben Yenildim");

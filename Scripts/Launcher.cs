@@ -20,7 +20,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        Data.isComeUI = true;
+        Data.IsComeUI = true;       // Launchera bir kez girdiysek o zaman UI ekranındayızdır
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
@@ -36,7 +36,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         
-        if (string.IsNullOrEmpty(Data.nickName))
+        if (string.IsNullOrEmpty(Data.NickName))
         {
             Invoke("OpenStartPanel", 0.01f);
         }

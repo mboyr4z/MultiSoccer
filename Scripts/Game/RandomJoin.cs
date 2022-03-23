@@ -25,14 +25,13 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
 
-        if (Data.isComeUI == true) // ve UI ekranından geldiysek
+        if (Data.IsComeUI == true) // ve UI ekranından geldiysek
         {
             OnJoinedRoom();
-            Data.isComeUI = false;
+            Data.IsComeUI = false;      // oyun ekranına geldiysek tekrar false yaparız
         }
         else
         {
-            Data.gol = 0;      //odaya katıldığında gol ve oyuncu sırası ayarlanır
             PhotonNetwork.ConnectUsingSettings();
         }
     }
@@ -60,12 +59,12 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (!Data.isComeUI)     // eğer UI dan gelmediysek
+        if (!Data.IsComeUI)     // eğer UI dan gelmediysek
         {
-            Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
+            Data.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;
         }
 
-        Data.leftPlayer = (int) PhotonNetwork.CurrentRoom.MaxPlayers;   // odaya girdiğinde kalanOyuncu değeri Max player kadar olacak
+        Data.LeftPlayer = (int) PhotonNetwork.CurrentRoom.MaxPlayers;   // odaya girdiğinde kalanOyuncu değeri Max player kadar olacak
 
         Data.SetDataColor();        // OYUNA GİRİLDİĞİNDE RENK BELLİ OLSUN
 
@@ -82,7 +81,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-        if (Data.amILose) {
+        if (Data.AmILose) {
             Debug.LogError("Oyunu kaybederek çıktım");
             
         }

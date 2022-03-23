@@ -12,10 +12,12 @@ public class Room : Singleton<Room>
 
     private void Start()
     {
+       
+        Data.Gol = 0;
+        Data.AmILose = false;
+
         pv = GetComponent<PhotonView>();
-        Data.gol = 0;
-        Data.amILose = false;
-        Debug.LogError("Odaya Girerken Left Player : " + Data.leftPlayer);
+        Debug.LogError("Odaya Girerken Left Player : " + Data.LeftPlayer);
     }
 
     public void IsWinnerBeenLocal()
@@ -28,8 +30,8 @@ public class Room : Singleton<Room>
     private void IsWinnerBeenGlobal()
     {
         Debug.LogError("Duyduk");
-        Data.leftPlayer--;
-        if (Data.leftPlayer == 1 && !Data.amILose)        // O ZAMAN tek ben hayatta kaldım
+        Data.LeftPlayer--;
+        if (Data.LeftPlayer == 1 && !Data.AmILose)        // O ZAMAN tek ben hayatta kaldım
         {
             Debug.LogError("Ben Kazanmışım");
             pv.RPC(nameof(TheWinnerBeen), RpcTarget.All, PhotonNetwork.NickName);
@@ -85,7 +87,7 @@ public class Room : Singleton<Room>
 
     public void DestroyAllInstantinatedObjects()
     {
-        ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.playerOrder);      // odadan ayrılırken scoreboarddan ismini sil
+        ScoreBoard.Instance?.SetCloseScoreBoardItemForLeavedPlayerLocal(Data.PlayerOrder);      // odadan ayrılırken scoreboarddan ismini sil
 
         foreach (GameObject obj in Object.FindObjectsOfType(typeof(GameObject)))        // odadan ayrılırken sadece kendine ait olan playeri sil
         {

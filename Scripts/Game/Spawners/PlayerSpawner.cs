@@ -20,7 +20,7 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        switch (Data.playerOrder){
+        switch (Data.PlayerOrder){
             case 1:
                 spawnPoint = new Vector3(-8.98f, -3.93f, 0f);
                 break;

@@ -29,7 +29,7 @@ public class PlayerSetup : MonoBehaviour
     [PunRPC]
     private void SetInfosScoreBoardItems()
     {
-        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.gol, Data.playerOrder);      // scoreBoardtaki kendi iteminin bilgileri düzenlensin
+        ScoreBoard.Instance.SetInfosScoreBoardItemsLocal(PhotonNetwork.NickName, 0, Data.Gol, Data.PlayerOrder);      // scoreBoardtaki kendi iteminin bilgileri düzenlensin
     }
 
     private void SetColor()     // herkesin odadaki kişi sayısınca renk koyanilmesi için

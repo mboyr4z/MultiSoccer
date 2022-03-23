@@ -50,7 +50,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-        Data.playerOrder = PhotonNetwork.CurrentRoom.PlayerCount;       // playerOrder belli oldu
+        Data.PlayerOrder = PhotonNetwork.CurrentRoom.PlayerCount;       // playerOrder belli oldu
 
 
         Player[] players = PhotonNetwork.PlayerList;

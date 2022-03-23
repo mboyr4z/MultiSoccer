@@ -10,7 +10,7 @@ public class LostPanel : Singleton<LostPanel>
     private void OnEnable()
     {
         SetLoserNickName(PhotonNetwork.NickName);
-        SetLoserRank(Data.leftPlayer + 1);
+        SetLoserRank(Data.LeftPlayer);
     }
     public Text TXT_LoserNickName;
 
