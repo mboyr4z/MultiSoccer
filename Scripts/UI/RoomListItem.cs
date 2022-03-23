@@ -10,6 +10,11 @@ using Photon.Realtime;
 public class RoomListItem : MonoBehaviourPunCallbacks
 {
     public string name;
+
+    private float clickableTime = 0.5f;
+
+    private float lastTime = 0; 
+
     [SerializeField] TMP_Text roomName;
     [SerializeField] TMP_Text cur_max;
 
@@ -20,6 +25,7 @@ public class RoomListItem : MonoBehaviourPunCallbacks
     public void setup(RoomInfo _info)
     {
         this.name = _info.Name;
+
         roomName.text = _info.Name;
         cur_max.text = _info.PlayerCount.ToString() + " / " + _info.MaxPlayers.ToString();
         
@@ -28,6 +34,16 @@ public class RoomListItem : MonoBehaviourPunCallbacks
 
     public void OnClick()
     {
-        Launcher.Instance.JoinRoom(info);
+        if (lastTime + clickableTime < Time.time)
+        {
+            print("Tıklayabildin");
+            lastTime = Time.time;
+            Launcher.Instance.JoinRoom(info);
+        }
+        else
+        {
+            print("Henüz tıklayamazsın");
+        }
+     
     }
 }

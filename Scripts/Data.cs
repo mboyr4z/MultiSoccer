@@ -18,8 +18,6 @@ public static class Data
 
     public static bool isComeUI = false;
 
-    public static bool isComeGame = false;
-
     public static Color color;
 
     public static string nickName = string.Empty;

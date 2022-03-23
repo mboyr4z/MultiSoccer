@@ -22,7 +22,6 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        Data.isComeGame = true;
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
 
