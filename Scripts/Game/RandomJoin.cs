@@ -82,6 +82,17 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
+        if (Data.amILose) {
+            Debug.LogError("Oyunu kaybederek çıktım");
+            
+        }
+        else
+        {
+            Debug.LogError("Oyunu kaybetmeden Çıktım");
+            Room.Instance.IsWinnerBeenLocal(); //Odadan ayrılırken eğer yenilmemişse, diğer adamlardan birinci var mı kontrol etsin, yoksa zaten daha önceden yenilirken kontrol etmişti
+        }
+
+
         Room.Instance.DestroyAllInstantinatedObjects();
         IsKnockedOut = true;
         PhotonNetwork.LeaveRoom();      // ayrıl
@@ -97,8 +108,4 @@ public class RandomJoin : MonoBehaviourPunCallbacks
         PhotonNetwork.OfflineMode = true;       // tekrar mastera bağlanmasın odadan ayrılınca
     }
 
-    public override void OnPlayerLeftRoom(Player otherPlayer)       // birisi odadan ayrıldığında kazanan belli oluyor mu diye kontrol et
-    {
-        Room.Instance.IsWinnerBeenGlobal();
-    }
 }

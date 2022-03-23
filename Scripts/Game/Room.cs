@@ -15,19 +15,23 @@ public class Room : Singleton<Room>
         pv = GetComponent<PhotonView>();
         Data.gol = 0;
         Data.amILose = false;
+        Debug.LogError("Odaya Girerken Left Player : " + Data.leftPlayer);
     }
 
     public void IsWinnerBeenLocal()
     {
+        Debug.LogError("Kazanan var mı diye bağırdım");
         pv.RPC(nameof(IsWinnerBeenGlobal), RpcTarget.All, null);
     }
 
     [PunRPC]
-    public void IsWinnerBeenGlobal()
+    private void IsWinnerBeenGlobal()
     {
+        Debug.LogError("Duyduk");
         Data.leftPlayer--;
         if (Data.leftPlayer == 1 && !Data.amILose)        // O ZAMAN tek ben hayatta kaldım
         {
+            Debug.LogError("Ben Kazanmışım");
             pv.RPC(nameof(TheWinnerBeen), RpcTarget.All, PhotonNetwork.NickName);
         }
     }

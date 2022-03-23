@@ -85,15 +85,15 @@ public class MyPlayer : Singleton<MyPlayer>
     
     private void AmILose()
     {
-        if(Data.gol == 3)
+        if(Data.gol == 1)
         {
             Data.amILose = true;     // sona kalan oyuncuyu anlamak için, bir tek sona kalanın değeri true oluyor
             GoalSpawner.localGoal.GetComponent<Goal>().ChangeColorWhenKnockedOutLocal();        // kendi kalesinin rengini kırmızı yapsın
             pv.RPC(nameof(SetScoreGlobal), RpcTarget.All, Data.playerOrder, "K.O");    // oyun içi skoru güncelle
             Room.Instance.DestroyAllInstantinatedObjects();
             MenuManager.Instance.OpenMenu("LostPanel");
-            Room.Instance.IsWinnerBeenLocal();
             Debug.LogError("Ben Yenildim");
+            Room.Instance.IsWinnerBeenLocal();
         }
     }
 
