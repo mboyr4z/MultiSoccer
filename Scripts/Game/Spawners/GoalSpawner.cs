@@ -30,28 +30,28 @@ public class GoalSpawner : MonoBehaviour
         switch (Data.playerOrder)
         {
             case 1:
-                spawnPoint = new Vector2(-9.95f, 0f);
-                angle = 90;
+                spawnPoint = new Vector2(-9.31f, -4.4f);
+                angle = 137;
                 break;
 
             case 2:
-                spawnPoint = new Vector2(9.95f, 0f);
-                angle = 270;
+                spawnPoint = new Vector2(9.46f,4.28f);
+                angle = -45;
                 break;
 
             case 3:
-                spawnPoint = new Vector2(0f, -5.22f);
-                angle = 180;
+                spawnPoint = new Vector2(-9.31f, 4.34f);
+                angle = 45;
                 break;
 
             case 4:
-                spawnPoint = new Vector2(0f, 5.22f);
-                angle = 0;
+                spawnPoint = new Vector2(9.44f, -4.41f);
+                angle = -135;
                 break;
 
             default:
-                spawnPoint = new Vector2(-9.95f, 0f);
-                angle = 90;
+                spawnPoint = new Vector2(-9.95f, -4.4f);
+                angle = 135;
                 break;
         }
         

@@ -36,14 +36,8 @@ public class RoomListItem : MonoBehaviourPunCallbacks
     {
         if (lastTime + clickableTime < Time.time)
         {
-            print("Tıklayabildin");
             lastTime = Time.time;
             Launcher.Instance.JoinRoom(info);
         }
-        else
-        {
-            print("Henüz tıklayamazsın");
-        }
-     
     }
 }

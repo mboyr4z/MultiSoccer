@@ -22,19 +22,19 @@ public class PlayerSpawner : MonoBehaviour
     {
         switch (Data.playerOrder){
             case 1:
-                spawnPoint = new Vector3(-8f, 0f, 0f);
+                spawnPoint = new Vector3(-8.98f, -3.93f, 0f);
                 break;
             case 2:
-                spawnPoint = new Vector3(8f, 0f, 0f);
+                spawnPoint = new Vector3(8.97f, 3.98f, 0f);
                 break;
             case 3:
-                spawnPoint = new Vector3(0f, -4f, 0f);
+                spawnPoint = new Vector3(-8.89f, 3.92f, 0f);
                 break;
             case 4:
-                spawnPoint = new Vector3(0f, 4f, 0f);
+                spawnPoint = new Vector3(9.09f, -4f, 0f);
                 break;
             default:
-                spawnPoint = new Vector3(-8f, 0f, 0f);
+                spawnPoint = new Vector3(-8.98f, -3.93f, 0f);
                 break;
         }
         
