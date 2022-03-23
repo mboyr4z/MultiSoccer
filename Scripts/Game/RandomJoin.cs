@@ -82,12 +82,12 @@ public class RandomJoin : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         if (Data.AmILose) {
-            Debug.LogError("Oyunu kaybederek çıktım");
+            //Debug.LogError("Oyunu kaybederek çıktım");
             
         }
         else
         {
-            Debug.LogError("Oyunu kaybetmeden Çıktım");
+            //Debug.LogError("Oyunu kaybetmeden Çıktım");
             Room.Instance.IsWinnerBeenLocal(); //Odadan ayrılırken eğer yenilmemişse, diğer adamlardan birinci var mı kontrol etsin, yoksa zaten daha önceden yenilirken kontrol etmişti
         }
 

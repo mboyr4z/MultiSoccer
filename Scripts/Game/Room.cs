@@ -17,23 +17,23 @@ public class Room : Singleton<Room>
         Data.AmILose = false;
 
         pv = GetComponent<PhotonView>();
-        Debug.LogError("Odaya Girerken Left Player : " + Data.LeftPlayer);
+        //Debug.LogError("Odaya Girerken Left Player : " + Data.LeftPlayer);
     }
 
     public void IsWinnerBeenLocal()
     {
-        Debug.LogError("Kazanan var mı diye bağırdım");
+        //Debug.LogError("Kazanan var mı diye bağırdım");
         pv.RPC(nameof(IsWinnerBeenGlobal), RpcTarget.All, null);
     }
 
     [PunRPC]
     private void IsWinnerBeenGlobal()
     {
-        Debug.LogError("Duyduk");
+        //Debug.LogError("Duyduk");
         Data.LeftPlayer--;
         if (Data.LeftPlayer == 1 && !Data.AmILose)        // O ZAMAN tek ben hayatta kaldım
         {
-            Debug.LogError("Ben Kazanmışım");
+            //Debug.LogError("Ben Kazanmışım");
             pv.RPC(nameof(TheWinnerBeen), RpcTarget.All, PhotonNetwork.NickName);
         }
     }

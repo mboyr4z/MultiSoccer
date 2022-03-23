@@ -92,7 +92,7 @@ public class MyPlayer : Singleton<MyPlayer>
             pv.RPC(nameof(SetScoreGlobal), RpcTarget.All, Data.PlayerOrder, "K.O");    // oyun içi skoru güncelle
             Room.Instance.DestroyAllInstantinatedObjects();
             MenuManager.Instance.OpenMenu("LostPanel");
-            Debug.LogError("Ben Yenildim");
+            //Debug.LogError("Ben Yenildim");
             Room.Instance.IsWinnerBeenLocal();
         }
     }
