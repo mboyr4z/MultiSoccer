@@ -17,7 +17,8 @@ public class StartPanel : MonoBehaviour
         {
             return;
         }
-        PhotonNetwork.NickName = txtNickName.text;
-        MenuManager.Instance.OpenMenu("title");
+        Data.nickName = nickName;
+        PhotonNetwork.NickName = nickName;
+        MenuManager.Instance.OpenMenu("TitleMenu");
     }
 }

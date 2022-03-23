@@ -9,12 +9,14 @@ public class Menu : MonoBehaviour
 
     public void Open()
     {
+        //print(gameObject.name + " menüsü açıldı");
         open = true;
         gameObject.SetActive(true);
     }
 
     public void Close()
     {
+        //print(gameObject.name + " menüsü kapandı");
         open = false;
         gameObject.SetActive(false);
     }

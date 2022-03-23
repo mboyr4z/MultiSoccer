@@ -22,6 +22,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        Data.isComeGame = true;
         PhotonNetwork.SendRate = 120;
         PhotonNetwork.SerializationRate = 60;
 
@@ -89,9 +90,7 @@ public class RandomJoin : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LeaveLobby();
         SceneManager.LoadScene(0);
-        
     }
 
     public override void OnLeftLobby()

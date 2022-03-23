@@ -24,13 +24,9 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        MenuManager.Instance.OpenMenu("loading");
     }
 
-    public override void OnLeftRoom()
-    {
-        MenuManager.Instance.OpenMenu("title");
-    }
+
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
@@ -44,6 +40,7 @@ public class RoomMenu : MonoBehaviourPunCallbacks
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
+        print("biri odadan ayrıldı");
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.CurrentRoom.IsVisible = true;

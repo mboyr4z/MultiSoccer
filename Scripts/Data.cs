@@ -18,7 +18,11 @@ public static class Data
 
     public static bool isComeUI = false;
 
+    public static bool isComeGame = false;
+
     public static Color color;
+
+    public static string nickName = string.Empty;
 
     public static Color gray = new Color(164,191,219,255) / 255;
     public static Color pink = new Color(255, 54, 114, 255) / 255;

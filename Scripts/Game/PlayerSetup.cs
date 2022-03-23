@@ -39,7 +39,7 @@ public class PlayerSetup : MonoBehaviour
 
     private void SetTriggerGoal()       // herkesin odadaki kişi sayısınca kale triggerlarını açması için
     {
-        Stadium.Instance.OpenTriggerGoalLocal();
+        Stadium.Instance?.OpenTriggerGoalLocal();
     }
 
  

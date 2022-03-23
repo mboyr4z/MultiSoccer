@@ -35,12 +35,20 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        Invoke("OpenStartPanel", 0.01f);
+        
+        if (string.IsNullOrEmpty(Data.nickName))
+        {
+            Invoke("OpenStartPanel", 0.01f);
+        }
+        else
+        {
+            MenuManager.Instance.OpenMenu("TitleMenu");
+        }
     }
 
     private void OpenStartPanel()
     {
-        MenuManager.Instance.OpenMenu("startPanel");
+        MenuManager.Instance.OpenMenu("StartMenu");
     }
 
     public void JoinRoom(RoomInfo info)
@@ -50,7 +58,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()
     {
-        MenuManager.Instance.OpenMenu("room");
+        MenuManager.Instance.OpenMenu("RoomMenu");
     }
 
 

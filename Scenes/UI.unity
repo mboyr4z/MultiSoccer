@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfda150e37e26e4892b64c7de135ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: findRoom
+  menuName: FindRoomMenu
   open: 0
 --- !u!224 &96396873
 RectTransform:
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 115872152}
   - component: {fileID: 115872149}
   m_Layer: 5
-  m_Name: StartPanel
+  m_Name: StartMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfda150e37e26e4892b64c7de135ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: startPanel
-  open: 1
+  menuName: StartMenu
+  open: 0
 --- !u!114 &115872152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfda150e37e26e4892b64c7de135ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: loading
+  menuName: LoadingMenu
   open: 1
 --- !u!114 &156202012
 MonoBehaviour:
@@ -2667,7 +2667,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: findRoom
+          m_StringArgument: FindRoomMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &821019403
@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfda150e37e26e4892b64c7de135ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: createRoom
+  menuName: CreateRoomMenu
   open: 0
 --- !u!114 &992938017
 MonoBehaviour:
@@ -3305,7 +3305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfda150e37e26e4892b64c7de135ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: room
+  menuName: RoomMenu
   open: 0
 --- !u!224 &1026176169
 RectTransform:
@@ -3900,7 +3900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f0dae08b1c61a469b234e59f7a49c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: title
+  menuName: TitleMenu
 --- !u!114 &1308880975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5166,7 +5166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f0dae08b1c61a469b234e59f7a49c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: title
+  menuName: TitleMenu
 --- !u!114 &1612448441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5476,8 +5476,8 @@ GameObject:
   - component: {fileID: 1702554430}
   - component: {fileID: 1702554429}
   - component: {fileID: 1702554428}
-  - component: {fileID: 1702554431}
   - component: {fileID: 1702554432}
+  - component: {fileID: 1702554431}
   m_Layer: 5
   m_Name: Btn_LeaveRoom
   m_TagString: Untagged
@@ -5608,7 +5608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f0dae08b1c61a469b234e59f7a49c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: title
+  menuName: TitleMenu
 --- !u!114 &1702554432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6080,7 +6080,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: createRoom
+          m_StringArgument: CreateRoomMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1876137109
@@ -6261,8 +6261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfda150e37e26e4892b64c7de135ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: title
-  open: 1
+  menuName: TitleMenu
+  open: 0
 --- !u!114 &1922274583
 MonoBehaviour:
   m_ObjectHideFlags: 0
