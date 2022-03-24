@@ -4974,13 +4974,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1598073125}
   m_TextComponent: {fileID: 371834135}
   m_Placeholder: {fileID: 57388598}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
