@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour, IPunObservable
 
     [SerializeField] private float hiz;
 
-    private FixedJoystick joystick;
+    private DynamicJoystick joystick;
 
     private float yatay, dikey;
 
@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour, IPunObservable
     private void Awake()
     {
         isMine = GetComponent<PhotonView>().IsMine;
-        joystick = GameObject.Find("Fixed Joystick").GetComponent<FixedJoystick>();
+        joystick = GameObject.Find("Dynamic Joystick").GetComponent<DynamicJoystick>();
         rb = GetComponent<Rigidbody2D>();
     }
 
