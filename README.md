@@ -24,7 +24,7 @@
   <br>
   ![image](https://user-images.githubusercontent.com/82450697/159862965-0fc0e6e6-7f7d-49bc-8106-d04c31d7f1ee.png)
     
-    <h2 id ="server" > wad</h2>
+<h2 id ="server" > wad</h2>
 
 
   
