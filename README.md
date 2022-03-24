@@ -4,6 +4,7 @@
   
  PUN, multiplayer oyun geliştirme yapmak isteyenleri çin tasarlanmış kolay, hızlı ve uyumlı bir ağ için bileşenler oluşturmaya yarayan bir modüldür.
   <h1><a href = "#kurulum">Kurulum<a/></h1>
+      <h1><a href = "#kurulum">Kurulum<a/></h1>
     
   Editörümüze kurmak için Assetstore linklerimiz <a href= "https://assetstore.unity.com/packages/tools/network/photon-pun-2-120838#reviews">Ücretli Sürüm</a> ve <a href= "https://assetstore.unity.com/packages/tools/network/pun-2-free-119922#description">Ücretsiz Sürüm</a>
   
