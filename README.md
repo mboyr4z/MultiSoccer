@@ -10,7 +10,8 @@
   
   Kurulumuzu yaptıktan sonra karşımıza PUN Wizard ekranı geliyor ve bizden bir app ID istiyor.
   
-  ![image](https://user-images.githubusercontent.com/82450697/159862702-9f0c57c3-0fb2-4ecb-bda3-278f67effd05.png)
+  ![image](https://user-images.githubusercontent.com/82450697/159863548-113b7e27-67d7-496f-84ed-26ebb961b445.png)
+
   
   İlgili App ID için Photon sitesinde oturum açıp, uygulama oluşturmamız gerek. Create new App kısmına gidip Photon-Type seçeneğini PUN yapıyoruz. Sonra uygulama ismi ve açıklama girdikten sonra uygulamamızı oluşturuyoruz (Photon Website : https://dashboard.photonengine.com/en-US/)
   
