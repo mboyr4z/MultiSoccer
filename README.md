@@ -24,7 +24,9 @@
   <br>
   ![image](https://user-images.githubusercontent.com/82450697/159862965-0fc0e6e6-7f7d-49bc-8106-d04c31d7f1ee.png)
     
-<h2 id ="server" > wad</h2>
+<h2 id ="server" >Serverv ve Lobby</h2>
+    
+Photonda diğer oyuncularla aynı sahneden oyun oyanayabilmemiz için ilk önce servera, sonra lobby'e katılmalıyız. Daha sonra ise oda oluşturulur ya da varolan bir odaya katılınır. 
 
 
   
